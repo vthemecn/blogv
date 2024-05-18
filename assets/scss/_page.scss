@@ -1,0 +1,40 @@
+/**
+ * 单页
+ */
+.singular-page-container {
+  margin-top: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+
+  background-color: var(--rt-bg-color-card);
+  box-shadow: 0 0 2px 0 var(--rt-shadow-color);
+  border-radius: var(--rt-border-radius);
+  // border: 1px solid var(--rt-border-color);
+}
+
+.page-title {
+  line-height: 30px;
+  font-size: var(--rt-font-size-lg);
+  font-weight: 600;
+  color: var(--rt-text-color);
+}
+
+.page-meta {
+  margin: 2rem 0rem 5rem 0rem;
+}
+
+.singular-article-container .edit-button{ margin: 20px 0 20px 0 }
+.singular-article-container .edit-button, 
+.singular-article-container .edit-button a {
+  font-size: 13px;
+  color: var(--rt-text-color-grey);
+}
+.singular-article-container .edit-button i{
+  position: relative;
+  top: 2px;
+  font-size: 20px;
+}
+
+.page-content {
+  margin-top: 30px;
+}

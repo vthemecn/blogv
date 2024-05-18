@@ -1,0 +1,84 @@
+:root {
+  // 行为相关颜色
+  --rt-color-primary: #007aff;
+  --rt-color-success: #4cd964;
+  --rt-color-warning: #f0ad4e;
+  --rt-color-error: #dd524d;
+  
+  // 文字尺寸
+  --rt-font-size-sm: 13px;
+  --rt-font-size-base:17px;
+  --rt-font-size-lg: 22px;
+  
+  // 文字基本颜色
+  --rt-text-color: #333; //基本色
+  --rt-text-color-inverse: #fff; //反色
+  --rt-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
+  --rt-text-color-placeholder: #8c8c8c;
+  --rt-text-color-disable: #e2e4eb;
+
+  // 背景颜色
+  --rt-bg-color: #f7f7fb;
+  --rt-bg-color-grey: #f1f1f1;
+  --rt-bg-color-hover: #f2f2f2;
+  --rt-bg-color-mask: rgba(50, 50, 50, 0.5);
+  --rt-bg-color-card: #ffffff;
+
+  // 边框
+  --rt-border-radius: 8px;
+  --rt-border-color: #e5ebeb;
+  --rt-shadow-color: #d1d2d3;
+}
+
+
+// 夜间模式
+body.dark-mode {
+  // 文字基本颜色 
+  --rt-text-color: #b9b9b9; //基本色
+  --rt-text-color-inverse: #333; //反色
+  --rt-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
+  --rt-text-color-placeholder: #808080;
+  --rt-text-color-disable: #404244;
+
+  // 背景颜色 
+  --rt-bg-color: #2c2c2c;
+  --rt-bg-color-grey: #5a5a5a;
+  --rt-bg-color-hover: #979797;
+  --rt-bg-color-mask: rgba(50, 50, 50, 0.5);
+  --rt-bg-color-card: #272727;
+  
+  // 边框
+  --rt-border-color: #303030;
+  --rt-shadow-color: #181818;
+}
+body.dark-mode {
+  img {  filter: brightness(70%); }
+  .logo { filter: brightness(200%); }
+}
+
+
+@media (prefers-color-scheme: dark){
+  body.dark-mode-auto{
+    // 文字基本颜色 
+    --rt-text-color: #b9b9b9; //基本色
+    --rt-text-color-inverse: #333; //反色
+    --rt-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
+    --rt-text-color-placeholder: #808080;
+    --rt-text-color-disable: #404244;
+
+    // 背景颜色 
+    --rt-bg-color: #2c2c2c;
+    --rt-bg-color-grey: #5a5a5a;
+    --rt-bg-color-hover: #979797;
+    --rt-bg-color-mask: rgba(50, 50, 50, 0.5);
+    --rt-bg-color-card: #272727;
+    
+    // 边框
+    --rt-border-color: #303030;
+    --rt-shadow-color: #181818;
+  }
+  body.dark-mode-auto{
+    img {  filter: brightness(70%); }
+    .logo { filter: brightness(200%); }
+  }
+}

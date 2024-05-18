@@ -1,0 +1,46 @@
+/*
+ * 公共按钮
+ */
+
+.btn {
+  display:inline-block;
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  box-sizing: border-box;
+  border: 1px solid var(--rt-border-color);
+  border-radius: var(--rt-border-radius);
+  color: var(--rt-text-color);
+  cursor: pointer;
+  font-size: var(--rt-font-size-sm);
+  text-align: center;
+  padding: 0 8px;
+  font-size: 13px;
+  &:hover{
+    color: var(--rt-text-color);
+  }
+}
+
+.btn.btn-sm{
+  height: 22px;
+  line-height: 22px;
+  font-size: 12px;
+  width: auto;
+  padding: 0 8px;
+}
+
+.btn.btn-primary {
+  background-color: var(--rt-color-primary);
+  color:var(--rt-text-color-inverse);
+}
+.btn.btn-danger {
+  background-color: var(--rt-color-error);
+  color:var(--rt-text-color-inverse);
+}
+
+
+@media only screen and (min-width: 900px) {
+  .btn, .btn-primary {
+    width: auto;
+  }
+}
