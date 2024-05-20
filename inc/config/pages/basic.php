@@ -338,7 +338,7 @@ defined('ABSPATH') || exit;
                             不显示
                         </label>
                     </p>
-                    <p class="description">这个选项只控制是否显示注册登录按钮。如需设置用户权限，可在后台“设置->常规设置”中修改成员资格</p>
+                    <p class="description">这个选项只控制是否显示注册登录按钮</p>
                 </td>
             </tr>
             
@@ -386,6 +386,23 @@ defined('ABSPATH') || exit;
                         </label>
                         <label>
                             <input name="show_comments_counter" type="radio" value="0" <?php if ($rt_config['show_comments_counter'] == 0) { ?>checked="checked" <?php } ?>>
+                            关闭
+                        </label>
+                    </p>
+                    <p class="description">在文章列表和文章详情页显示评论数</p>
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row"><label for="comments_is_on">开启评论</label></th>
+                <td>
+                    <p>
+                        <label>
+                            <input name="comments_is_on" type="radio" value="1" <?php if ($rt_config['comments_is_on'] == 1) { ?>checked="checked" <?php } ?>>
+                            开启
+                        </label>
+                        <label>
+                            <input name="comments_is_on" type="radio" value="0" <?php if ($rt_config['comments_is_on'] == 0) { ?>checked="checked" <?php } ?>>
                             关闭
                         </label>
                     </p>

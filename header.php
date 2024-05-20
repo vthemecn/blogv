@@ -116,9 +116,11 @@ $flash_class = $rt_config['logo_is_flashing'] ? 'flash' : '';
         <div class="mobile-menu-modal">
             <div class="mobile-menu">
                 <div class="action-widget">
-                    <a class="action-button" href="<?php bloginfo('siteurl') ?>/wp-admin/index.php">
-                        <i class="iconfont">&#xe8a5;</i>
-                    </a>
+                    <?php if (!$current_user->ID && $rt_config['is_show_login_register']) : ?>
+                        <a class="action-button" href="<?php bloginfo('siteurl') ?>/wp-admin/index.php">
+                            <i class="iconfont">&#xe8a5;</i>
+                        </a>
+                    <?php endif ?>
                     <?php if($rt_config['dark_mode_type'] == 1): ?>
                         <a class="action-button dark-mode-button  <?php echo $is_dark_mode ? 'dark' : '' ?>">
                             <i class="iconfont sun">&#xe7ff;</i>

@@ -51,6 +51,7 @@ function rt_get_default_config()
     $config['dark_mode_type'] = 1;
     $config['highlight_is_on'] = 0;
     $config['show_comments_counter'] = 1;
+    $config['comments_is_on'] = 0;
 
     
 	/**

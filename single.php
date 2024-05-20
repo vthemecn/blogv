@@ -13,7 +13,7 @@ get_header();
 
 
 <?php
-$rt_options = rt_get_config();
+$rt_config = rt_get_config();
 
 setPostViews(get_the_ID()); // 更新文章浏览次数
 
@@ -108,10 +108,10 @@ if($current_user_id){
                 }
                 ?>
 
-                <?php if($rt_options['show_copyright']):?>
+                <?php if($rt_config['show_copyright']):?>
                     <div class="copyright-content">
                         <i class="iconfont">&#xe788;</i>
-                        <?php echo $rt_options['show_copyright_text']; ?>
+                        <?php echo $rt_config['show_copyright_text']; ?>
                     </div>
                 <?php endif ?>
 
@@ -170,7 +170,7 @@ if($current_user_id){
         </div>
 
         <?php
-        if (comments_open() || get_comments_number()) {
+        if ($rt_config['comments_is_on'] && (comments_open() || get_comments_number()) ) {
             comments_template();
         }
         ?>
