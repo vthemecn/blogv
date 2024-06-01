@@ -56,14 +56,63 @@ query_posts($args);
 
 <div class="main-container">
     <div class="widget-one">
-        <?php if (have_posts()) : ?>
-            <div class="media-list">
-                <?php while (have_posts()) : the_post(); ?>
-                    <?php $rt_post_type = get_post_meta( $post->ID, 'rt_post_type', true ); ?>
-                    <?php get_template_part( 'templates/media/media' ); ?>
+        <?php
+        $sticky_arr = get_option( 'sticky_posts' );
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        ?>
+
+        <div class="media-list">
+            <?php
+            $args = array(
+                'cat' => $cat,
+                'post__in' => $sticky_arr,
+                'ignore_sticky_posts' => 1,
+                'paged' => $paged
+            );
+            // 置顶文章
+            $query_posts = new WP_Query( $args );
+            ?>
+
+            <?php if ( $query_posts->have_posts() ) : ?>
+                <?php while ( $query_posts->have_posts() ) : ?>
+                    <?php
+                    $query_posts->the_post();
+                    $rt_post_type = get_post_meta( $post->ID, 'rt_post_type', true );
+                    get_template_part( 'templates/media/media' );
+                    ?>
                 <?php endwhile; ?>
-            </div>
-        <?php else : ?>
+            <?php endif; ?>
+
+
+            <?php
+            $args = array(
+                'cat' => $cat,
+                'posts_per_page' => get_option('posts_per_page'),
+                'ignore_sticky_posts' => true,
+                'post__not_in' => $sticky_arr,
+                'paged' => $paged
+            );
+            // 正常文章
+            $query_posts = new WP_Query( $args );
+            ?>
+
+            <?php if ( $query_posts->have_posts() ) : ?>
+                <?php while ( $query_posts->have_posts() ) : ?>
+                    <?php
+                    $query_posts->the_post();
+                    $rt_post_type = get_post_meta( $post->ID, 'rt_post_type', true );
+                    get_template_part( 'templates/media/media' );
+                    ?>
+                <?php endwhile; ?>
+            <?php endif; ?>  
+        </div>
+
+        
+        <?php
+        $args = array( 'cat' => $cat, 'posts_per_page' => 1 );
+        $query_posts = new WP_Query( $args );
+        ?>
+        <?php if( !$query_posts->have_posts() ): ?>
             <div class="no-content">
                 <img src="<?php bloginfo('template_url'); ?>/assets/images/empty.png">
                 <p>本栏目暂无内容</p>

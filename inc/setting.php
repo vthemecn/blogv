@@ -144,9 +144,10 @@ function custom_loginlogo() {
     echo '<style type="text/css">
     h1 a {
         background-image: url('. $rt_config['site_logo'] .') !important;
-        width:180px !important;
-        height:50px !important;
+        max-width:180px !important;
+        max-height:70px !important;
         background-size: 100% !important;
+        object-fit:cover;
     }
     #loginform{
         border-radius: 5px;

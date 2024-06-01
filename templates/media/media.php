@@ -11,7 +11,7 @@ $user_center_url = $rt_config['user_center_is_on'] ? '/users/'.$post->post_autho
     <div class="media-thumbnail">
         <a href="<?php the_permalink() ?>" target="_blank">
             <?php if (has_post_thumbnail()) { ?>
-                <?php the_post_thumbnail(); ?>
+                <?php the_post_thumbnail('medium'); ?>
             <?php } else { ?>
                 <img src="<?php echo $rt_config['default_image'] ?>">
             <?php } ?>
