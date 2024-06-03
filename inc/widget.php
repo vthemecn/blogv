@@ -527,12 +527,115 @@ class CategoryWidget extends WP_Widget {
 
 
 
+
+/**
+ * 用户卡片
+ */
+class UserWidget extends WP_Widget {
+    function __construct(){
+        $this->WP_Widget( 'user-widget', __( '【Nine】用户卡片', 'rt' ), array( 'description' => __( '用户卡片描述', 'rt' ) ) );
+    }
+ 
+    function widget( $args, $instance ){
+        extract( $args, EXTR_SKIP );
+        echo $before_widget;
+
+        global $wpdb;
+        wp_reset_postdata();
+
+        $rt_config = rt_get_config();
+        switch ($rt_config['widget_title_type']) {
+            case '1': $widget_title_class='type-1'; break;
+            case '2': $widget_title_class='type-2'; break;
+            case '3': $widget_title_class='type-3'; break;
+            default:  $widget_title_class=''; break;
+        }
+
+        $title = $instance['title'];
+
+        $user_id = get_the_author_meta('ID');
+        $avatar_url = get_template_directory_uri() . '/assets/images/avatar.jpg';
+        $avatar_id = get_the_author_meta('user_avatar_attachment_id');
+        $avatar = wp_get_attachment_image_src($avatar_id, 'medium');
+        $avatar_url = isset($avatar[0]) ? $avatar[0] : $avatar_url;
+
+        $nickname = get_user_meta($user_id, 'nickname', true);
+
+        $sql = "SELECT count(id) AS counter FROM wp_posts WHERE post_author=%d";
+        $res = $wpdb->get_results($wpdb->prepare($sql, [$user_id]), ARRAY_A);
+        $posts_counter = $res[0]['counter'] ? $res[0]['counter'] : 0;
+
+        $sql = "SELECT count(comment_ID) AS counter FROM wp_comments WHERE user_id=%d";
+        $res = $wpdb->get_results($wpdb->prepare($sql, [$user_id]), ARRAY_A);
+        $comments_counter = $res[0]['counter'] ? $res[0]['counter'] : 0;
+
+        $sql = "SELECT count(id) AS counter FROM wp_rt_star WHERE type='like' AND user_id=%d";
+        $res = $wpdb->get_results($wpdb->prepare($sql, [$user_id]), ARRAY_A);
+        $like_counter = $res[0]['counter'] ? $res[0]['counter'] : 0;
+
+        ?>
+
+        <?php if($user_id):?>
+            <div class="user-card-container widget-container">
+                <?php if($title):?>
+                <div class="widget-header <?php echo $widget_title_class; ?>">
+                    <div class="widget-title"><?php echo $title ?></div>
+                </div>
+                <?php endif ?>
+                <div class="user-header">
+                    <a href="javascript:;" class="user-avatar">
+                        <img src="<?php echo $avatar_url?>">
+                    </a>
+                    <div class="nickname"><?php echo $nickname ?></div>
+                    <div class="description"></div>
+                </div>
+                <div class="user-meta">
+                    <div class="meta-item">
+                        <span><?php echo $posts_counter ?></span> <span>文章</span>
+                    </div>
+                    <div class="meta-item">
+                        <span><?php echo $comments_counter ?></span> <span>评论</span>
+                    </div>
+                    <div class="meta-item">
+                        <span><?php echo $like_counter ?></span> <span>收藏</span>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php
+        echo $after_widget;
+    }
+
+    function form($instance) {
+        $title = !empty($instance['title']) ? $instance['title'] : '';
+        $posts_per_page = !empty($instance['posts_per_page']) ? $instance['posts_per_page'] : '';
+        $cat_id = !empty($instance['cat_id']) ? $instance['cat_id'] : '';
+        $post_type = !empty($instance['post_type']) ? $instance['post_type'] : '';
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>">标题:</label>
+            <input type="text" class="" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo esc_attr($title); ?>">
+        </p>
+        <?php
+    }
+
+    function update($new_instance, $old_instance) {
+        $instance = array();
+        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+        return $instance;
+    }
+}
+
+
+
 function rt_add_widget(){
     register_widget('HotWidget');
     register_widget('ArticleWidget');
     register_widget('ImageArticleWidget');
     register_widget('ImageWidget');
     register_widget('CategoryWidget');
+    register_widget('UserWidget');
 }
 
 add_action( 'widgets_init', 'rt_add_widget' );

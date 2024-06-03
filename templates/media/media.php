@@ -32,7 +32,7 @@ $user_center_url = $rt_config['user_center_is_on'] ? '/users/'.$post->post_autho
             <a class="author" href="<?php echo $user_center_url ?>" target="_blank">
                 <img src="<?php echo $avatar ?>">
                 <span>
-                    <?php echo get_the_author_meta('display_name', $post->post_author) ?>
+                    <?php echo get_the_author_meta('nickname', $post->post_author) ?>
                 </span>
             </a>
             <span class="date">

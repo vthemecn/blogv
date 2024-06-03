@@ -113,11 +113,12 @@ $comment_count = get_comments_number();
 							?>
 							<?php if($user_url): ?>
 								<a href="javascript:;" target="_blank" data-url="<?php echo $user_url ?>">
-									<?php echo get_comment_author() ?>
+									<?php echo  get_user_meta($comment->user_id, 'nickname', true); ?>
+									<?php //echo get_comment_author() ?>
 									<i class="iconfont">&#xe702;</i>
 								</a>
 							<?php else:?>
-								<?php echo get_comment_author() ?>
+								<?php echo  get_user_meta($comment->user_id, 'nickname', true); ?>
 							<?php endif ?>
 						</span>
 					</div>

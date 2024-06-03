@@ -434,3 +434,92 @@
     }
   }
 }
+
+
+
+
+
+
+
+/**
+ * 作者卡片
+ */
+.user-card-container {
+  box-sizing: border-box;
+  border-radius: var(--rt-border-radius);
+  background-color: var(--rt-bg-color-card);
+  box-shadow: 0 0 2px 0 var(--rt-shadow-color);
+  border-radius: var(--rt-border-radius);
+  // padding: 15px 0 15px 0;
+  margin: 0px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.user-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+.user-header .user-avatar{
+  width: 80px;
+  height: 80px;
+}
+.user-header .user-avatar img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.user-header .nickname{ margin: 15px 0 0 0; font-size: 22px; font-weight: bold;}
+.user-header .description{
+  margin: 10px 0 0 0;
+  padding: 0 45px;
+  line-height: 20px;
+  font-size: var(--rt-font-size-sm);
+  color: var(--rt-text-color-grey);
+}
+.user-meta{
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 15px 0;
+  color: var(--rt-text-color-grey);
+}
+.user-meta .meta-item{
+  min-width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 12px;
+}
+.user-meta .meta-item span{ margin-top:3px; }
+.user-meta .meta-item span:first-child{ margin-top:5px; font-size:16px; font-weight: bold; }
+
+
+body.dark-mode .user-card {
+  background-color: var(--rt-bg-color-card)
+}
+
+@media only screen and (min-width: 900px) {
+  .user-card {
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

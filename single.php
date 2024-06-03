@@ -65,7 +65,7 @@ if($current_user_id){
                     <img src="<?php echo $rt_avatar ?>" >
                     <span>
                         <a href="/users/<?php echo $post->post_author ?>" target='_blank'>
-                            <?php echo get_the_author_meta('display_name', $post->post_author) ?>
+                            <?php echo get_the_author_meta('nickname', $post->post_author) ?>
                         </a>
                     </span>
                 </span>
