@@ -9,8 +9,8 @@ add_filter( 'use_widgets_block_editor', '__return_false');
 
 function rt_widgets_init() {
     $args = array(
-        'name' => __( '首页侧边栏', 'rt' ),
-        'id' => 'home-sidebar',
+        'name' => __( '默认侧边栏', 'rt' ),
+        'id' => 'default-sidebar',
         'before_widget' => '',
         'after_widget' => '',
         'before_title' => '<h4>',
@@ -19,8 +19,8 @@ function rt_widgets_init() {
     register_sidebar($args);
 
     $args = array(
-        'name' => __( '页面侧边栏', 'rt' ),
-        'id' => 'main-sidebar',
+        'name' => __( '文章页侧边栏', 'rt' ),
+        'id' => 'posts-sidebar',
         'before_widget' => '',
         'after_widget' => '',
         'before_title' => '<h4>',

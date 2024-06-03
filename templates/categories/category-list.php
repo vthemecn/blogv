@@ -132,8 +132,8 @@ query_posts($args);
 
 
     <div class="sider little-widget">
-        <?php if ( is_active_sidebar( 'main-sidebar' ) ) : ?>
-            <?php dynamic_sidebar( 'main-sidebar' ); ?>
+        <?php if ( is_active_sidebar( 'default-sidebar' ) ) : ?>
+            <?php dynamic_sidebar( 'default-sidebar' ); ?>
         <?php endif; ?>
     </div>
 </div>

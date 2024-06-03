@@ -26,8 +26,8 @@ $rt_config = rt_get_config();
     </div>
     
     <div class="sider little-widget">
-        <?php if ( is_active_sidebar( 'home-sidebar' ) ) : ?>
-            <?php dynamic_sidebar( 'home-sidebar' ); ?>
+        <?php if ( is_active_sidebar( 'default-sidebar' ) ) : ?>
+            <?php dynamic_sidebar( 'default-sidebar' ); ?>
         <?php endif; ?>
     </div>
 </div>

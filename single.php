@@ -30,6 +30,7 @@ $like_counter = 0;
 $sql = "SELECT count(*) AS num FROM {$wpdb->prefix}rt_star WHERE object_id=%s AND type=%s";
 $res = $wpdb->get_row($wpdb->prepare($sql, [$rt_post_id, 'like']), ARRAY_A );
 $like_counter = $res['num'];
+
 // 当前用户是否喜欢
 $is_like = false;
 if($current_user_id){
@@ -43,6 +44,7 @@ $star_counter = 0;
 $sql = "SELECT count(*) AS num FROM {$wpdb->prefix}rt_star WHERE object_id=%s AND type=%s";
 $res = $wpdb->get_row($wpdb->prepare($sql, [$rt_post_id, 'star']), ARRAY_A );
 $star_counter = $res['num'];
+
 // 当前用户是否收藏
 $is_star = false;
 if($current_user_id){
@@ -178,8 +180,8 @@ if($current_user_id){
     </div><!-- .widget-one -->
 
     <div class="sider little-widget">
-        <?php if ( is_active_sidebar( 'main-sidebar' ) ) : ?>
-            <?php dynamic_sidebar( 'main-sidebar' ); ?>
+        <?php if ( is_active_sidebar( 'posts-sidebar' ) ) : ?>
+            <?php dynamic_sidebar( 'posts-sidebar' ); ?>
         <?php endif; ?>
     </div>
 </div>
