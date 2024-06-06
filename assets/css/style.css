@@ -1559,6 +1559,10 @@ dialog.fixed {
   cursor: pointer;
 }
 
+.article-nav.next-nav {
+  text-align: right;
+}
+
 @media only screen and (min-width: 900px) {
   .article-prev-next-nav {
     margin: 20px 0px;

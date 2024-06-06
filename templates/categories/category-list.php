@@ -66,14 +66,13 @@ query_posts($args);
             $args = array(
                 'cat' => $cat,
                 'post__in' => $sticky_arr,
-                'ignore_sticky_posts' => 1,
                 'paged' => $paged
             );
             // 置顶文章
             $query_posts = new WP_Query( $args );
             ?>
 
-            <?php if ( $query_posts->have_posts() ) : ?>
+            <?php if ( $sticky_arr && $query_posts->have_posts() ) : ?>
                 <?php while ( $query_posts->have_posts() ) : ?>
                     <?php
                     $query_posts->the_post();
