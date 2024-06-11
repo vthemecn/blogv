@@ -116,7 +116,7 @@ $flash_class = $rt_config['logo_is_flashing'] ? 'flash' : '';
         <div class="mobile-menu-modal">
             <div class="mobile-menu">
                 <div class="action-widget">
-                    <?php if (!$current_user->ID && $rt_config['is_show_login_register']) : ?>
+                    <?php if ($current_user->ID && $rt_config['is_show_login_register']) : ?>
                         <a class="action-button" href="<?php bloginfo('siteurl') ?>/wp-admin/index.php">
                             <i class="iconfont">&#xe8a5;</i>
                         </a>

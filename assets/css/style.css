@@ -3200,6 +3200,7 @@ body.dark-mode .user-card {
   height: 100%;
   object-fit: cover;
   position: absolute;
+  image-rendering: crisp-edges;
 }
 
 .media-item .media-main {
