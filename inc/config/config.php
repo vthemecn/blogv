@@ -114,6 +114,8 @@ function rt_get_default_config()
 	$config['_home_options']['articles_title'] = '最新文章';
 	$config['_home_options']['articles_not_in_ids'] = '';
 	$config['_home_options']['articles_auto_load'] = 0;
+	$config['_home_options']['articles_auto_limit'] = 0;
+
 
 	/* 友情链接 */ 
 	$config['_home_options']['links_title'] = '友情链接';

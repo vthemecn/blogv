@@ -638,6 +638,9 @@
       if (!btn) return;
       if (btn.dataset.autoLoad == '0') return;
       window.addEventListener('scroll', function(e) {
+        if(btn.dataset.autoLimit != 0 && btn.dataset.currentPage >= btn.dataset.autoLimit){
+          return;
+        }
         if (isElementVisible(btn)) {
           if (btn.disabled == true) {
             return;

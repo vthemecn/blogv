@@ -60,6 +60,7 @@ $title = $rt_config['_home_options']['artilces_title'] ;
         type="button"
         class="posts-more-button articles-more"
         data-auto-load='<?php echo $rt_config['_home_options']['articles_auto_load'] ?>'
+        data-auto-limit='<?php echo $rt_config['_home_options']['articles_auto_limit'] ?>'
         data-no-more='false'
         data-current-page='1'>
         <i class="iconfont">&#xe895;</i>

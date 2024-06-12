@@ -270,6 +270,16 @@ $categories = get_categories($args);
                                 </label>
                             </td>
                         </tr>
+                        <tr>
+                            <th scope="row"><label for="articles_auto_limit">自动加载次数</label></th>
+                            <td>
+                                <input type="text" name="_home_options[articles_auto_limit]" 
+                                    id="_home_options[articles_auto_limit]"
+                                    value="<?php echo $config['_home_options']['articles_auto_limit']; ?>" 
+                                    class="regular-text" placeholder="">
+                                <p class="description" id="tagline-description">自动加载到第几页，0代表无限加载</p>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
