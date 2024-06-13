@@ -512,8 +512,15 @@ body.dark-mode .user-card {
 
 
 
-
-
+/**
+ * HTML 卡片
+ */
+.html-card-container{   box-shadow: none !important; }
+.html-card-container img{
+  width: 100%;
+  height: auto;
+  border-radius: var(--rt-border-radius);
+}
 
 
 

@@ -629,6 +629,53 @@ class UserWidget extends WP_Widget {
 
 
 
+/**
+ * HTML 卡片
+ */
+class HtmlWidget extends WP_Widget {
+    function __construct(){
+        $this->WP_Widget( 'html-widget', __( '【Nine】HTML卡片', 'rt' ), array( 'description' => __( 'HTML卡片描述', 'rt' ) ) );
+    }
+ 
+    function widget( $args, $instance ){
+        extract( $args, EXTR_SKIP );
+        echo $before_widget;
+
+        global $wpdb;
+        wp_reset_postdata();
+
+        $rt_config = rt_get_config();
+        $html = $instance['html'];
+
+        ?>
+
+        <div class="html-card-container widget-container">
+            <?php echo $html ?>
+        </div>
+        
+        <?php
+        echo $after_widget;
+    }
+
+    function form($instance) {
+        $html = !empty($instance['html']) ? $instance['html'] : '';
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('html'); ?>">标题:</label>
+            <textarea rows="3" name="<?php echo $this->get_field_name('html'); ?>"><?php echo $html ?></textarea>
+        </p>
+        <?php
+    }
+
+    function update($new_instance, $old_instance) {
+        $instance = array();
+        $instance['html'] = !empty($new_instance['html']) ? $new_instance['html'] : '';
+        return $instance;
+    }
+}
+
+
+
 function rt_add_widget(){
     register_widget('HotWidget');
     register_widget('ArticleWidget');
@@ -636,6 +683,7 @@ function rt_add_widget(){
     register_widget('ImageWidget');
     register_widget('CategoryWidget');
     register_widget('UserWidget');
+    register_widget('HtmlWidget');
 }
 
 add_action( 'widgets_init', 'rt_add_widget' );

@@ -2965,6 +2965,19 @@ body.dark-mode .user-card {
   background-color: var(--rt-bg-color-card);
 }
 
+/**
+ * HTML 卡片
+ */
+.html-card-container {
+  box-shadow: none !important;
+}
+
+.html-card-container img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--rt-border-radius);
+}
+
 .main-container {
   width: 100%;
   margin: 0 auto;
@@ -3200,6 +3213,9 @@ body.dark-mode .user-card {
   height: 100%;
   object-fit: cover;
   position: absolute;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
 
