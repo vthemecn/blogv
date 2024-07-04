@@ -2,13 +2,13 @@
   width: 100%;
   padding: 15px 15px;
   box-sizing: border-box;
-  font-size: var(--rt-font-size-base);
+  font-size: var(--vt-font-size-base);
   display: flex;
-  border-bottom:1px solid var(--rt-border-color);
+  border-bottom:1px solid var(--vt-border-color);
   // transition: all 1s linear;
 }
 .media-item:hover .media-thumbnail img{
-  // background-color:var(--rt-bg-color-hover);
+  // background-color:var(--vt-bg-color-hover);
   transition: all 0.2s linear;
   transform: scale(1.03);
 }
@@ -57,12 +57,12 @@
   padding: 2px 4px;
   border-radius: 3px;
   font-size: 14px;
-  background-color: var(--rt-color-primary);
+  background-color: var(--vt-color-primary);
   color: #fff;
 }
 
 .media-main .media-title a{
-  font-size: var(--rt-font-size-base);
+  font-size: var(--vt-font-size-base);
   font-weight: bold;
   line-height: 25px;
   text-overflow: ellipsis;
@@ -70,12 +70,12 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  color: var(--rt-text-color);
+  color: var(--vt-text-color);
   word-break:break-all
 }
 
 .media-main .media-title a:hover {
-  color: var(--rt-color-primary);
+  color: var(--vt-color-primary);
 }
 
 .media-main .media-description {
@@ -87,7 +87,7 @@
   overflow: hidden;
   line-height: 25px;
   font-size: 15px;
-  color: var(--rt-text-color-grey);
+  color: var(--vt-text-color-grey);
   margin-top: 0;
   margin-right: 5px;
   display: none;
@@ -95,8 +95,8 @@
 
 .media-main .media-meta {
   margin-top: 3px;
-  color: var(--rt-text-color-grey);
-  font-size: var(--rt-font-size-sm);
+  color: var(--vt-text-color-grey);
+  font-size: var(--vt-font-size-sm);
 }
 
 .media-main .media-meta .iconfont{
@@ -111,13 +111,13 @@
   height: 23px;
   border-radius: 50%;
   margin-bottom: -5px;
-  box-shadow: 0 1px 3px var(--rt-shadow-color);
+  box-shadow: 0 1px 3px var(--vt-shadow-color);
   object-fit: cover;
   position: relative;
   top: 1px;
 }
 .media-main .media-meta .author{
-  color: var(--rt-text-color-grey);
+  color: var(--vt-text-color-grey);
   font-size: 14px;
 }
 
@@ -138,7 +138,7 @@
   }
   .media-main .media-description {
     margin-top: 10px;
-    // font-size: var(--rt-font-size-sm);
+    // font-size: var(--vt-font-size-sm);
     line-height: 25px;
     display: -webkit-box;
   }

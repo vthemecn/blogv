@@ -53,7 +53,7 @@ get_header();
     
 </div>
 
-<input type="hidden" name="api_url" value="/wp-json/rangtuo/v1/users/<?php echo $param_user_id ?>">
+<input type="hidden" name="api_url" value="/wp-json/vtheme/v1/users/<?php echo $param_user_id ?>">
 <input type="hidden" name="wp_create_nonce" value="<?php echo wp_create_nonce('wp_rest'); ?>">
 
 <script type="module" src="<?php bloginfo('template_url'); ?>/assets/js/lib/axios/axios.esm.js"></script>

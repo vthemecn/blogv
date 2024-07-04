@@ -3,7 +3,7 @@
  * 移动端底部菜单
  */
 
-$rt_options = rt_get_config();
+$vt_options = vt_get_config();
 
 $current_user_id = get_current_user_id();
 
@@ -13,11 +13,11 @@ $current_user_id = get_current_user_id();
 <div class="mobile-nav">
     <div class="mobile-nav-container">
         <?php
-        $rt_mobile_nav_config = $rt_options['mobile_nav_config'];
-        $rt_mobile_nav_config = explode("\n", $rt_mobile_nav_config);
-        $rt_mobile_nav_config = array_filter($rt_mobile_nav_config);
+        $vt_mobile_nav_config = $vt_options['mobile_nav_config'];
+        $vt_mobile_nav_config = explode("\n", $vt_mobile_nav_config);
+        $vt_mobile_nav_config = array_filter($vt_mobile_nav_config);
 
-        foreach ($rt_mobile_nav_config as $k => $v) :
+        foreach ($vt_mobile_nav_config as $k => $v) :
             $nav_item = explode('|', $v);
         ?>
             <a class="nav-button" href="<?php echo $nav_item[2]; ?>">

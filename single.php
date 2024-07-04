@@ -13,43 +13,43 @@ get_header();
 
 
 <?php
-$rt_config = rt_get_config();
+$vt_config = vt_get_config();
 
 setPostViews(get_the_ID()); // 更新文章浏览次数
 
-$rt_post_id = get_the_ID();
-$rt_post = get_post($rt_post_id, ARRAY_A);
-$rt_author_id = $rt_post['post_author'];
-$rt_avatar = rt_get_custom_avatar_url($rt_author_id);
+$vt_post_id = get_the_ID();
+$vt_post = get_post($vt_post_id, ARRAY_A);
+$vt_author_id = $vt_post['post_author'];
+$vt_avatar = vt_get_custom_avatar_url($vt_author_id);
 
 global $wpdb;
 $current_user_id = get_current_user_id();
 
 // 喜欢数量
 $like_counter = 0;
-$sql = "SELECT count(*) AS num FROM {$wpdb->prefix}rt_star WHERE object_id=%s AND type=%s";
-$res = $wpdb->get_row($wpdb->prepare($sql, [$rt_post_id, 'like']), ARRAY_A );
+$sql = "SELECT count(*) AS num FROM {$wpdb->prefix}vt_star WHERE object_id=%s AND type=%s";
+$res = $wpdb->get_row($wpdb->prepare($sql, [$vt_post_id, 'like']), ARRAY_A );
 $like_counter = $res['num'];
 
 // 当前用户是否喜欢
 $is_like = false;
 if($current_user_id){
-    $sql = "SELECT id AS num FROM {$wpdb->prefix}rt_star WHERE object_id=%d AND user_id=%d AND type='like'";
-    $res = $wpdb->get_row($wpdb->prepare($sql, [$rt_post_id, $current_user_id]), ARRAY_A );
+    $sql = "SELECT id AS num FROM {$wpdb->prefix}vt_star WHERE object_id=%d AND user_id=%d AND type='like'";
+    $res = $wpdb->get_row($wpdb->prepare($sql, [$vt_post_id, $current_user_id]), ARRAY_A );
     $is_like = $res ? true : false;
 }
 
 // 收藏数量
 $star_counter = 0;
-$sql = "SELECT count(*) AS num FROM {$wpdb->prefix}rt_star WHERE object_id=%s AND type=%s";
-$res = $wpdb->get_row($wpdb->prepare($sql, [$rt_post_id, 'star']), ARRAY_A );
+$sql = "SELECT count(*) AS num FROM {$wpdb->prefix}vt_star WHERE object_id=%s AND type=%s";
+$res = $wpdb->get_row($wpdb->prepare($sql, [$vt_post_id, 'star']), ARRAY_A );
 $star_counter = $res['num'];
 
 // 当前用户是否收藏
 $is_star = false;
 if($current_user_id){
-    $sql = "SELECT id AS num FROM {$wpdb->prefix}rt_star WHERE object_id=%d AND user_id=%d AND type='star'";
-    $res = $wpdb->get_row($wpdb->prepare($sql, [$rt_post_id, $current_user_id]), ARRAY_A );
+    $sql = "SELECT id AS num FROM {$wpdb->prefix}vt_star WHERE object_id=%d AND user_id=%d AND type='star'";
+    $res = $wpdb->get_row($wpdb->prepare($sql, [$vt_post_id, $current_user_id]), ARRAY_A );
     $is_star = $res ? true : false;
 }
 
@@ -64,7 +64,7 @@ if($current_user_id){
             </div>
             <div class="article-meta">
                 <span class="meta author">
-                    <img src="<?php echo $rt_avatar ?>" >
+                    <img src="<?php echo $vt_avatar ?>" >
                     <span>
                         <a href="/users/<?php echo $post->post_author ?>" target='_blank'>
                             <?php echo get_the_author_meta('nickname', $post->post_author) ?>
@@ -79,7 +79,7 @@ if($current_user_id){
                     <i class="iconfont">&#xe752;</i>
                     <?php echo getPostViews(get_the_ID()); ?>
                 </span>
-                <?php if($rt_config['show_comments_counter']):?>
+                <?php if($vt_config['show_comments_counter']):?>
                     <span class='meta'>
                         <i class="iconfont">&#xe8a6;</i><?php echo $post->comment_count; ?>
                     </span>
@@ -110,15 +110,15 @@ if($current_user_id){
                 }
                 ?>
 
-                <?php if($rt_config['show_copyright']):?>
+                <?php if($vt_config['show_copyright']):?>
                     <div class="copyright-content">
                         <i class="iconfont">&#xe788;</i>
-                        <?php echo $rt_config['show_copyright_text']; ?>
+                        <?php echo $vt_config['show_copyright_text']; ?>
                     </div>
                 <?php endif ?>
 
                 <?php
-                $tags = get_the_tags( $rt_post_id );
+                $tags = get_the_tags( $vt_post_id );
                 ?>
                 <?php if($tags):?>
                     <div class="article-tags-widget">
@@ -172,7 +172,7 @@ if($current_user_id){
         </div>
 
         <?php
-        if ($rt_config['comments_is_on'] && (comments_open() || get_comments_number()) ) {
+        if ($vt_config['comments_is_on'] && (comments_open() || get_comments_number()) ) {
             comments_template();
         }
         ?>
@@ -188,10 +188,10 @@ if($current_user_id){
 
 
 <input type="hidden" name="wp_create_nonce" value="<?php echo wp_create_nonce('wp_rest'); ?>">
-<input type="hidden" name="post_id" value="<?php echo $rt_post_id ?>">
+<input type="hidden" name="post_id" value="<?php echo $vt_post_id ?>">
 
 
-<?php if($rt_config['highlight_is_on']):?>
+<?php if($vt_config['highlight_is_on']):?>
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/js/lib/highlight/styles/stackoverflow-light.min.css">
 <script src="<?php bloginfo('template_url'); ?>/assets/js/lib/highlight/highlight.min.js"></script>
 <script>

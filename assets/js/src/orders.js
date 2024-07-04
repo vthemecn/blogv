@@ -16,7 +16,7 @@ function buyButtonInit(){
   buyButton && buyButton.addEventListener('click', function (e) {
     
     var wpnonce = document.querySelector("input[name='wp_create_nonce']").value;
-    var createOrderUrl = '/wp-json/rangtuo/v1/orders' + "?_wpnonce=" + wpnonce;
+    var createOrderUrl = '/wp-json/vtheme/v1/orders' + "?_wpnonce=" + wpnonce;
     var payload = [{ item_id: this.dataset.itemId, quantity: 1 }];
 
     axios({
@@ -45,7 +45,7 @@ function deleteOrderInit(){
     btn.addEventListener('click', function (e) {
       console.log('xxxx');
       var wpnonce = document.querySelector("input[name='wp_create_nonce']").value;
-      let url = '/wp-json/rangtuo/v1/orders/' + this.dataset.orderTradeNo + "?_wpnonce=" + wpnonce;
+      let url = '/wp-json/vtheme/v1/orders/' + this.dataset.orderTradeNo + "?_wpnonce=" + wpnonce;
       var payload = [{ item_id: this.dataset.itemId, quantity: 1 }];
 
       axios({
@@ -74,7 +74,7 @@ function payOrderInit(){
   if(!payButton) return;
   payButton.addEventListener('click', function(e){
     let wpnonce = document.querySelector('input[name="wp_create_nonce"]').value;
-    let url = '/wp-json/rangtuo/v1/orders/' + this.dataset.orderId + "?_wpnonce=" + wpnonce + '&pay=true';
+    let url = '/wp-json/vtheme/v1/orders/' + this.dataset.orderId + "?_wpnonce=" + wpnonce + '&pay=true';
     let payload = {};
     payload['comment'] = document.querySelector('#order-comment').value;
     

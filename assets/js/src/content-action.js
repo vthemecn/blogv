@@ -23,8 +23,8 @@ async function likeInit(){
       var wpnonce = document.querySelector("input[name='wp_create_nonce']").value;
       var post_id = document.querySelector("input[name='post_id']").value;
       
-      var addUrl = '/wp-json/rangtuo/v1/stars' + "?_wpnonce=" + wpnonce;
-      var deleteUrl = '/wp-json/rangtuo/v1/stars/' + post_id + "?_wpnonce=" + wpnonce;
+      var addUrl = '/wp-json/vtheme/v1/stars' + "?_wpnonce=" + wpnonce;
+      var deleteUrl = '/wp-json/vtheme/v1/stars/' + post_id + "?_wpnonce=" + wpnonce;
       
       if( this.classList.contains('active') ){
         await axios.request({ method: 'DELETE', url: deleteUrl, data: {'type':'like'} })
@@ -70,8 +70,8 @@ async function starInit(){
       var wpnonce = document.querySelector("input[name='wp_create_nonce']").value;
       var post_id = document.querySelector("input[name='post_id']").value;
       
-      var addUrl = '/wp-json/rangtuo/v1/stars' + "?_wpnonce=" + wpnonce;
-      var deleteUrl = '/wp-json/rangtuo/v1/stars/' + post_id + "?_wpnonce=" + wpnonce;
+      var addUrl = '/wp-json/vtheme/v1/stars' + "?_wpnonce=" + wpnonce;
+      var deleteUrl = '/wp-json/vtheme/v1/stars/' + post_id + "?_wpnonce=" + wpnonce;
       
       if( this.classList.contains('active') ){
         await axios.request({ method: 'DELETE', url: deleteUrl, data: {'type':'star'} })

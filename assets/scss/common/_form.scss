@@ -23,16 +23,16 @@
 .field-text input,
 .field-text textarea {
   padding: 8px 30px 8px 8px;
-  border: 1px solid var(--rt-border-color);
+  border: 1px solid var(--vt-border-color);
   border-radius: 3px;
 }
 .field-text :focus {
   outline: 0;
   box-shadow: 0 0 5px rgba(93, 162, 248, 0.5);
-  border-color: var(--rt-color-primary);
+  border-color: var(--vt-color-primary);
 }
 .field-text :invalid {
-  border-color: var(--rt-color-danger);
+  border-color: var(--vt-color-danger);
   box-shadow: 0 0 5px rgba(229, 43, 37, 0.5);
 }
 
@@ -49,12 +49,12 @@
 input:focus + .form-help {
   padding: 8px;
   margin-top: 5px;
-  border: 1px solid var(--rt-color-warning);
+  border: 1px solid var(--vt-color-warning);
   border-radius: 3px;
   font-style: italic;
   font-size: 13px;
-  color: var(--rt-text-color);
-  background-color: var(--rt-bg-color-grey);
+  color: var(--vt-text-color);
+  background-color: var(--vt-bg-color-grey);
   position: relative;
   width: auto;
   height: auto;
@@ -62,7 +62,7 @@ input:focus + .form-help {
 }
 
 input:disabled, textarea:disabled {
-  background-color: var(--rt-bg-color-grey);
+  background-color: var(--vt-bg-color-grey);
 }
 
 

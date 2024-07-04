@@ -1,5 +1,5 @@
 <?php
-$rt_config = rt_get_config();
+$vt_config = vt_get_config();
 
 
 function add_theme_support_all()
@@ -24,13 +24,13 @@ add_action('after_setup_theme', 'add_theme_support_all');
 /**
  * 支持文章排序
  */
-function rt_add_post_attributes()
+function vt_add_post_attributes()
 {
   add_post_type_support('post', 'page-attributes');
 }
-add_action('init', 'rt_add_post_attributes', 500);
+add_action('init', 'vt_add_post_attributes', 500);
 
-function rt_pre_insert_post($post, \WP_REST_Request $request)
+function vt_pre_insert_post($post, \WP_REST_Request $request)
 {
   $body = $request->get_body();
   if ($body) {
@@ -41,19 +41,19 @@ function rt_pre_insert_post($post, \WP_REST_Request $request)
   }
   return $post;
 }
-add_filter('rest_pre_insert_post', 'rt_pre_insert_post', 12, 2);
+add_filter('rest_pre_insert_post', 'vt_pre_insert_post', 12, 2);
 
-function rt_prepare_post(\WP_REST_Response $response, $post, $request)
+function vt_prepare_post(\WP_REST_Response $response, $post, $request)
 {
   $response->data['menu_order'] = $post->menu_order;
   return $response;
 }
-add_filter('rest_prepare_post', 'rt_prepare_post', 12, 3);
+add_filter('rest_prepare_post', 'vt_prepare_post', 12, 3);
 
 
 
 // 不显示顶部的工具栏
-if($rt_config['show_admin_bar'] != 1){
+if($vt_config['show_admin_bar'] != 1){
   show_admin_bar(false);
 }
 
@@ -66,8 +66,8 @@ if($rt_config['show_admin_bar'] != 1){
 /**
  * 设置显示字数
  */
-add_filter('excerpt_length', 'rt_excerpt_length', 999);
-function rt_excerpt_length($length) {
+add_filter('excerpt_length', 'vt_excerpt_length', 999);
+function vt_excerpt_length($length) {
     return 200;
 }
 
@@ -75,7 +75,7 @@ function rt_excerpt_length($length) {
 /**
  * 禁用更新
  */
-if($rt_config['update_is_on'] == 0){
+if($vt_config['update_is_on'] == 0){
     add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) ); // 移除版本更新提示
     add_filter( 'pre_site_transient_update_plugins', create_function( '$b', "return null;" ) ); // 移除插件更新提示
     add_filter('pre_site_transient_update_core', create_function('$a', "return null;")); // 移除主题更新提示 
@@ -87,17 +87,17 @@ if($rt_config['update_is_on'] == 0){
     remove_action( 'load-update-core.php', 'wp_update_plugins' );
     remove_action ('load-update-core.php', 'wp_update_themes'); 
     
-    function rt_remove_php_nag() {
+    function vt_remove_php_nag() {
         remove_meta_box( 'dashboard_php_nag', 'dashboard', 'normal' );// 建议更新PHP版本
     }
-    add_action( 'wp_dashboard_setup', 'rt_remove_php_nag' );
+    add_action( 'wp_dashboard_setup', 'vt_remove_php_nag' );
 }
 
 
 /**
  * 是否禁用古腾堡编辑器，启用经典编辑器
  */
-if ($rt_config['editor_type'] == 1) {
+if ($vt_config['editor_type'] == 1) {
     /* Disable Gutenberg Block Editor */
     add_filter('use_block_editor_for_post', '__return_false', 10);
     /* Disable Widgets Block Editor */
@@ -120,7 +120,7 @@ if ($rt_config['editor_type'] == 1) {
     }
     
     // 修改编辑器内容样式
-    function rt_add_editor_style( $mceInit ) {
+    function vt_add_editor_style( $mceInit ) {
       $styles = "#tinymce{ font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; } pre { font-size:13px; background-color:#f0f0f0; padding:8px;border-radius:3px}";
     
       if ( !isset( $mceInit['content_style'] ) ) {
@@ -130,7 +130,7 @@ if ($rt_config['editor_type'] == 1) {
       }
       return $mceInit;
     }
-    add_filter( 'tiny_mce_before_init', 'rt_add_editor_style' );
+    add_filter( 'tiny_mce_before_init', 'vt_add_editor_style' );
 }
 
 
@@ -140,10 +140,10 @@ add_filter('login_display_language_dropdown', '__return_false');
 
 /* 修改登录页的样式 */
 function custom_loginlogo() {
-    $rt_config = rt_get_config();
+    $vt_config = vt_get_config();
     echo '<style type="text/css">
     h1 a {
-        background-image: url('. $rt_config['site_logo'] .') !important;
+        background-image: url('. $vt_config['site_logo'] .') !important;
         max-width:180px !important;
         max-height:70px !important;
         background-size: 100% !important;
@@ -158,15 +158,15 @@ add_action('login_head', 'custom_loginlogo');
 
 
 /* 文章自动保存 */
-if($rt_config['editor_revision'] == 0){
+if($vt_config['editor_revision'] == 0){
     //禁用文章自动保存
-    add_action('wp_print_scripts','rt_not_autosave');
-    function rt_not_autosave(){
+    add_action('wp_print_scripts','vt_not_autosave');
+    function vt_not_autosave(){
         wp_deregister_script('autosave');
     }
     //禁用文章修订版本
-    add_filter( 'wp_revisions_to_keep', 'rt_revisions_to_keep', 10, 2 );
-    function rt_revisions_to_keep( $num, $post ) {
+    add_filter( 'wp_revisions_to_keep', 'vt_revisions_to_keep', 10, 2 );
+    function vt_revisions_to_keep( $num, $post ) {
         return 0;
     }
 }
@@ -177,28 +177,28 @@ add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 
 
 /* 登录后跳转控制 */
-function rt_login_redirect( $redirect_to, $request, $user ) {
-    $rt_config = rt_get_config();
+function vt_login_redirect( $redirect_to, $request, $user ) {
+    $vt_config = vt_get_config();
     // 如果登录成功并且用户是管理员，则跳转到后台管理页面
     if ( is_array( $user->roles ) && in_array( 'administrator', $user->roles ) ) {
         return admin_url();
     } else {
         // 否则跳转到个人资料页面
-        if($rt_config['user_center_is_on']){
+        if($vt_config['user_center_is_on']){
             return home_url( '/users/' .  $user->ID );
         }
         return home_url( '/wp-admin/profile.php' );
     }
 }
 
-add_filter( 'login_redirect', 'rt_login_redirect', 10, 3 );
+add_filter( 'login_redirect', 'vt_login_redirect', 10, 3 );
 
 
 /**
  * 自定义图片名称
  */
-add_filter('wp_handle_upload_prefilter', 'rt_upload_filter');
-function rt_upload_filter($file)
+add_filter('wp_handle_upload_prefilter', 'vt_upload_filter');
+function vt_upload_filter($file)
 {
     $info = pathinfo($file['name']);
     $ext = $info['extension'];
@@ -212,11 +212,11 @@ function rt_upload_filter($file)
 
 
 
-if ($rt_config['rt_email_is_on'] == 1) {
+if ($vt_config['vt_email_is_on'] == 1) {
     add_action('phpmailer_init', 'mail_smtp');
     function mail_smtp($phpmailer)
     {
-        $config = rt_get_config();
+        $config = vt_get_config();
 
         $phpmailer->IsSMTP();
         $phpmailer->SMTPAuth     = true;
@@ -227,24 +227,24 @@ if ($rt_config['rt_email_is_on'] == 1) {
         $phpmailer->Password     = $config['smtp_password'];
     }
 
-    add_filter('wp_mail_from', 'rt_wp_mail_from');
-    function rt_wp_mail_from()
+    add_filter('wp_mail_from', 'vt_wp_mail_from');
+    function vt_wp_mail_from()
     {
-        $config = rt_get_config();
+        $config = vt_get_config();
         return $config['smtp_username'];
     }
 
     add_filter('wp_mail_from_name', 'mail_from_name');
     function mail_from_name()
     {
-        $config = rt_get_config();
+        $config = vt_get_config();
         return $config['smtp_nicename'];
     }
 
     // 保存邮件发送错误信息
-    add_action('wp_mail_failed', 'rt_add_mail_error');
-    function rt_add_mail_error($wp_error)
+    add_action('wp_mail_failed', 'vt_add_mail_error');
+    function vt_add_mail_error($wp_error)
     {
-        update_option('rt_mail_error', $wp_error->get_error_message('wp_mail_failed'));
+        update_option('vt_mail_error', $wp_error->get_error_message('wp_mail_failed'));
     }
 }

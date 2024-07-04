@@ -3,10 +3,10 @@
   flex: 0 0 calc(50% - 8px);
   margin: 0 8px 8px 0;
   box-sizing: border-box;
-  // border: 1px solid var(--rt-border-color);
-  box-shadow: 0 0 2px 0 var(--rt-shadow-color);
-  border-radius: var(--rt-border-radius);
-  background-color: var(--rt-bg-color-card);
+  // border: 1px solid var(--vt-border-color);
+  box-shadow: 0 0 2px 0 var(--vt-shadow-color);
+  border-radius: var(--vt-border-radius);
+  background-color: var(--vt-bg-color-card);
   position: relative;
 }
 
@@ -24,9 +24,9 @@
   height: 100%;
   left: 0;
   top: 0;
-  border-radius: var(--rt-border-radius) var(--rt-border-radius) 0 0;
+  border-radius: var(--vt-border-radius) var(--vt-border-radius) 0 0;
   object-fit: cover;
-  // box-shadow: 0px 1px 3px 0px var(--rt-shadow-color);
+  // box-shadow: 0px 1px 3px 0px var(--vt-shadow-color);
 }
 
 .card-item .item-info {
@@ -37,7 +37,7 @@
 
 .card-item .item-info  a.title {
   display: block;
-  font-size: var(--rt-font-size-base);
+  font-size: var(--vt-font-size-base);
   font-weight: 500;
   line-height: 20px;
   min-height: 20px;
@@ -47,7 +47,7 @@
 
 .card-item .item-info  .description {
   margin-top: 3px;
-  font-size: var(--rt-font-size-sm);
+  font-size: var(--vt-font-size-sm);
   color: #666;
   max-height: 40px;
   line-height: 20px;
@@ -73,7 +73,7 @@
   font-size: 15px;
 }
 .item-price .item-delete {
-  color: var(--rt-text-color-grey) !important;
+  color: var(--vt-text-color-grey) !important;
   text-decoration: line-through;
   font-size: 10px;
   margin-left: 10px;
@@ -83,8 +83,8 @@
 .card-meta{
   box-sizing:border-box;
   padding:5px 5px;
-  color: var(--rt-text-color-grey);
-  font-size: var(--rt-font-size-sm);
+  color: var(--vt-text-color-grey);
+  font-size: var(--vt-font-size-sm);
 }
 .card-meta .meta .iconfont{
   position:relative;

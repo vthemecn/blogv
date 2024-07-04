@@ -71,7 +71,7 @@ $comment_count = get_comments_number();
 				'avatar_size' => 60,
 				'style' => 'li',
 				// 'short_ping'  => true,
-				'callback' => 'rt_comment',
+				'callback' => 'vt_comment',
 				// 'per_page' => get_option('comments_per_page'),
 				// 'reverse_top_level' => true
 				'reverse_children' => true
@@ -89,7 +89,7 @@ $comment_count = get_comments_number();
 
 
 	<?php
-	function rt_comment($comment, $args, $depth)
+	function vt_comment($comment, $args, $depth)
 	{
 		$tag = 'li';
 		$add_below = 'div-comment';

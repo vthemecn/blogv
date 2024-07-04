@@ -8,16 +8,16 @@
   height: 32px;
   line-height: 32px;
   box-sizing: border-box;
-  border: 1px solid var(--rt-border-color);
-  border-radius: var(--rt-border-radius);
-  color: var(--rt-text-color);
+  border: 1px solid var(--vt-border-color);
+  border-radius: var(--vt-border-radius);
+  color: var(--vt-text-color);
   cursor: pointer;
-  font-size: var(--rt-font-size-sm);
+  font-size: var(--vt-font-size-sm);
   text-align: center;
   padding: 0 8px;
   font-size: 13px;
   &:hover{
-    color: var(--rt-text-color);
+    color: var(--vt-text-color);
   }
 }
 
@@ -30,12 +30,12 @@
 }
 
 .btn.btn-primary {
-  background-color: var(--rt-color-primary);
-  color:var(--rt-text-color-inverse);
+  background-color: var(--vt-color-primary);
+  color:var(--vt-text-color-inverse);
 }
 .btn.btn-danger {
-  background-color: var(--rt-color-error);
-  color:var(--rt-text-color-inverse);
+  background-color: var(--vt-color-error);
+  color:var(--vt-text-color-inverse);
 }
 
 

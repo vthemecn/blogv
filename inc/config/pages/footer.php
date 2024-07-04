@@ -41,7 +41,7 @@ $categories = get_categories($args);
             <tr>
                 <th scope="row"><label for="footer_description">底部标题</label></th>
                 <td>
-                    <textarea name="footer_description" id="footer_description" class="regular-text"><?php echo ($rt_config['footer_description']); ?></textarea>
+                    <textarea name="footer_description" id="footer_description" class="regular-text"><?php echo ($vt_config['footer_description']); ?></textarea>
                     <p class="description" id="tagline-description">用简洁的文字描述本站点。</p>
                 </td>
             </tr>
@@ -49,7 +49,7 @@ $categories = get_categories($args);
             <tr>
                 <th scope="row"><label for="footer_copyright">底部版权</label></th>
                 <td>
-                    <textarea name="footer_copyright" id="footer_copyright" class="regular-text" rows="5"><?php echo ($rt_config['footer_copyright']); ?></textarea>
+                    <textarea name="footer_copyright" id="footer_copyright" class="regular-text" rows="5"><?php echo ($vt_config['footer_copyright']); ?></textarea>
                     <p class="description" id="tagline-description">底部版权的文字信息，支持 HTML</p>
                 </td>
             </tr>
@@ -58,12 +58,12 @@ $categories = get_categories($args);
                 <th scope="row"><label for="footer_logo">底部 logo</label></th>
                 <td>
                     <div>
-                        <?php if ($rt_config['footer_logo']) { ?>
-                            <img class="my-img-preview" src="<?php echo $rt_config['footer_logo']; ?>" style="display:block;">
+                        <?php if ($vt_config['footer_logo']) { ?>
+                            <img class="my-img-preview" src="<?php echo $vt_config['footer_logo']; ?>" style="display:block;">
                         <?php } else { ?>
                             <img class="my-img-preview" src="" style="display:none;">
                         <?php } ?>
-                        <input type="text" name="footer_logo" id="footer_logo" value="<?php echo ($rt_config['footer_logo']); ?>" class="regular-text image-input" />
+                        <input type="text" name="footer_logo" id="footer_logo" value="<?php echo ($vt_config['footer_logo']); ?>" class="regular-text image-input" />
                         <button type="button" class="upload-button">上传</button>
                         <button type="button" class="delete-button">删除</button>
                         <p class="description" id="tagline-description">图片尺寸 180*50</p>
@@ -76,11 +76,11 @@ $categories = get_categories($args);
                 <td>
                     <p>
                         <label>
-                            <input name="footer_bg_type" type="radio" value="0" <?php if ($rt_config['footer_bg_type'] == 0) { ?>checked="checked" <?php } ?>>
+                            <input name="footer_bg_type" type="radio" value="0" <?php if ($vt_config['footer_bg_type'] == 0) { ?>checked="checked" <?php } ?>>
                             暗色
                         </label>
                         <label>
-                            <input name="footer_bg_type" type="radio" value="1" <?php if ($rt_config['footer_bg_type'] == 1) { ?>checked="checked" <?php } ?>>
+                            <input name="footer_bg_type" type="radio" value="1" <?php if ($vt_config['footer_bg_type'] == 1) { ?>checked="checked" <?php } ?>>
                             亮色
                         </label>
                         <!-- 跟随系统 -->
@@ -101,12 +101,12 @@ $categories = get_categories($args);
                 <td>
                     <p>
                         <label>
-                            <input name="is_mobile_nav_show" type="radio" value="1" <?php if ($rt_config['is_mobile_nav_show'] == 1) { ?>checked="checked" <?php } ?>>
+                            <input name="is_mobile_nav_show" type="radio" value="1" <?php if ($vt_config['is_mobile_nav_show'] == 1) { ?>checked="checked" <?php } ?>>
                             显示
                         </label>
                         <br>
                         <label>
-                            <input name="is_mobile_nav_show" type="radio" value="0" <?php if ($rt_config['is_mobile_nav_show'] == 0) { ?>checked="checked" <?php } ?>>
+                            <input name="is_mobile_nav_show" type="radio" value="0" <?php if ($vt_config['is_mobile_nav_show'] == 0) { ?>checked="checked" <?php } ?>>
                             不显示
                         </label>
                     </p>
@@ -116,13 +116,13 @@ $categories = get_categories($args);
             <tr>
                 <th scope="row"><label for="mobile_nav_config">导航设置</label></th>
                 <td>
-                    <textarea name="mobile_nav_config" id="mobile_nav_config" class="regular-text" rows="5"><?php echo ($rt_config['mobile_nav_config']); ?></textarea>
+                    <textarea name="mobile_nav_config" id="mobile_nav_config" class="regular-text" rows="5"><?php echo ($vt_config['mobile_nav_config']); ?></textarea>
                     <p class="description" id="tagline-description"></p>
                 </td>
             </tr>
         </tbody>
     </table>
-    <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('rt_options_update') ?>">
-    <input type="hidden" name="_action" value="rt_options_update">
+    <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('vt_options_update') ?>">
+    <input type="hidden" name="_action" value="vt_options_update">
     <input type="submit" name="input_save" value="保存" class="button button-primary" />
 </form>

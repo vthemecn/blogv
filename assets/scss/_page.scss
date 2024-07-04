@@ -6,17 +6,17 @@
   padding: 15px;
   box-sizing: border-box;
 
-  background-color: var(--rt-bg-color-card);
-  box-shadow: 0 0 2px 0 var(--rt-shadow-color);
-  border-radius: var(--rt-border-radius);
-  // border: 1px solid var(--rt-border-color);
+  background-color: var(--vt-bg-color-card);
+  box-shadow: 0 0 2px 0 var(--vt-shadow-color);
+  border-radius: var(--vt-border-radius);
+  // border: 1px solid var(--vt-border-color);
 }
 
 .page-title {
   line-height: 30px;
-  font-size: var(--rt-font-size-lg);
+  font-size: var(--vt-font-size-lg);
   font-weight: 600;
-  color: var(--rt-text-color);
+  color: var(--vt-text-color);
 }
 
 .page-meta {
@@ -27,7 +27,7 @@
 .singular-article-container .edit-button, 
 .singular-article-container .edit-button a {
   font-size: 13px;
-  color: var(--rt-text-color-grey);
+  color: var(--vt-text-color-grey);
 }
 .singular-article-container .edit-button i{
   position: relative;

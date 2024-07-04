@@ -15,14 +15,14 @@ defined('ABSPATH') || exit;
             <tr>
                 <th scope="row"><label for="option_backup">备份</label></th>
                 <td>
-                    <textarea name="option_backup" id="option_backup" class="regular-text" rows="10"><?php echo json_encode($rt_config, JSON_UNESCAPED_UNICODE); ?></textarea>
+                    <textarea name="option_backup" id="option_backup" class="regular-text" rows="10"><?php echo json_encode($vt_config, JSON_UNESCAPED_UNICODE); ?></textarea>
                     <p class="description" id="tagline-description"></p>
                 </td>
             </tr>
         </tbody>
     </table>
-    <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('rt_options_update') ?>">
-    <input type="hidden" name="_action" value="rt_options_update">
+    <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('vt_options_update') ?>">
+    <input type="hidden" name="_action" value="vt_options_update">
     <input type="submit" name="backup_save" value="保存配置" class="button button-primary" />
     <input type="submit" name="backup_reset" value="重置配置" class="button button-danger" />
     <button class="button button-download" type='button'>下载配置</button>
@@ -39,7 +39,7 @@ defined('ABSPATH') || exit;
     });
     
     document.querySelector('.button-download').addEventListener('click', function(e){
-        var url = '/wp-admin/admin-ajax.php?action=rt_download_config'
+        var url = '/wp-admin/admin-ajax.php?action=vt_download_config'
         window.open(url);
     });
 

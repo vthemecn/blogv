@@ -1,10 +1,10 @@
 <?php
-$rt_config = rt_get_config();
+$vt_config = vt_get_config();
 
 $author_id = get_the_author_id();
-$avatar = rt_get_custom_avatar_url($author_id);
+$avatar = vt_get_custom_avatar_url($author_id);
 
-$user_center_url = $rt_config['user_center_is_on'] ? '/users/'.$post->post_author : 'javascript:;';
+$user_center_url = $vt_config['user_center_is_on'] ? '/users/'.$post->post_author : 'javascript:;';
 ?>
 
 <div class="media-item">
@@ -13,7 +13,7 @@ $user_center_url = $rt_config['user_center_is_on'] ? '/users/'.$post->post_autho
             <?php if (has_post_thumbnail()) { ?>
                 <?php the_post_thumbnail('medium'); ?>
             <?php } else { ?>
-                <img src="<?php echo $rt_config['default_image'] ?>">
+                <img src="<?php echo $vt_config['default_image'] ?>">
             <?php } ?>
         </a>
     </div>
@@ -41,7 +41,7 @@ $user_center_url = $rt_config['user_center_is_on'] ? '/users/'.$post->post_autho
             <span class="hit-counter">
                 <i class="iconfont">&#xe752;</i><?php echo getPostViews(get_the_ID()); ?>
             </span>
-            <?php if($rt_config['show_comments_counter']):?>
+            <?php if($vt_config['show_comments_counter']):?>
                 <span>
                     <i class="iconfont">&#xe8a6;</i><?php echo $post->comment_count; ?>
                 </span>

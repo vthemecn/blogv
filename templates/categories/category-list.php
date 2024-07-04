@@ -14,7 +14,7 @@ get_header();
 /**
  * 分类页 Banner
  */
-$rt_options = rt_get_config();
+$vt_options = vt_get_config();
 $category = get_term($cat);
 
 
@@ -76,7 +76,7 @@ query_posts($args);
                 <?php while ( $query_posts->have_posts() ) : ?>
                     <?php
                     $query_posts->the_post();
-                    $rt_post_type = get_post_meta( $post->ID, 'rt_post_type', true );
+                    $vt_post_type = get_post_meta( $post->ID, 'vt_post_type', true );
                     get_template_part( 'templates/media/media' );
                     ?>
                 <?php endwhile; ?>
@@ -99,7 +99,7 @@ query_posts($args);
                 <?php while ( $query_posts->have_posts() ) : ?>
                     <?php
                     $query_posts->the_post();
-                    $rt_post_type = get_post_meta( $post->ID, 'rt_post_type', true );
+                    $vt_post_type = get_post_meta( $post->ID, 'vt_post_type', true );
                     get_template_part( 'templates/media/media' );
                     ?>
                 <?php endwhile; ?>

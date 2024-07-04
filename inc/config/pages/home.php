@@ -8,7 +8,7 @@
 
 defined('ABSPATH') || exit;
 
-$config = rt_get_config();
+$config = vt_get_config();
 // p($config['_home_options']);
 // 
 
@@ -334,7 +334,7 @@ $categories = get_categories($args);
                                 <select name="_home_options[links_cat_id]" id="_home_options[links_cat_id]">
                                     <option value="0">请选择</option>
                                     <?php foreach ($categories as $k => $v) : ?>
-                                        <?php $selected = $v->term_id == $rt_config['_home_options']['links_cat_id'] ? ' selected="selected"' : ""; ?>
+                                        <?php $selected = $v->term_id == $vt_config['_home_options']['links_cat_id'] ? ' selected="selected"' : ""; ?>
                                         <option <?php echo $selected; ?> value="<?php echo $v->term_id; ?>"><?php echo $v->name; ?></option>
                                     <?php endforeach; ?>
                                 </select>
@@ -348,8 +348,8 @@ $categories = get_categories($args);
         </div>
         
     </div>
-    <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('rt_options_update') ?>">
-    <input type="hidden" name="_action" value="rt_options_update">
+    <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('vt_options_update') ?>">
+    <input type="hidden" name="_action" value="vt_options_update">
     <input type="submit" name="input_save" value="保存" class="button button-primary" />
 </form>
 

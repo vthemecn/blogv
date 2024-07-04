@@ -1,9 +1,9 @@
 .orders-widget{
   margin: 10px 0 0 0;
-  // background-color: var(--rt-bg-color-grey);
+  // background-color: var(--vt-bg-color-grey);
   padding: 10px;
-  border-radius: var(--rt-border-radius);
-  border: 1px solid var(--rt-border-color);
+  border-radius: var(--vt-border-radius);
+  border: 1px solid var(--vt-border-color);
   box-sizing: border-box;
   font-size: 14px;
   flex-wrap: wrap;
@@ -21,7 +21,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 13px;
-    color: var(--rt-text-color);
+    color: var(--vt-text-color);
     img{
       width: 60px;
       height: 60px;

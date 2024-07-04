@@ -6,7 +6,7 @@ class HomeController
 {
     public function getMoreArticles($request)
     {
-        $rt_config = rt_get_config();
+        $vt_config = vt_get_config();
         
         $query = $request->get_query_params();
 
@@ -22,8 +22,8 @@ class HomeController
             // 'orderby' => array("menu_order" => "desc",'date' => "desc")
         );
         
-        if( $rt_config['_home_options']['artilces_not_in_ids'] ){
-            $args['category__not_in'] = explode(',', $rt_config['_home_options']['artilces_not_in_ids']);
+        if( $vt_config['_home_options']['artilces_not_in_ids'] ){
+            $args['category__not_in'] = explode(',', $vt_config['_home_options']['artilces_not_in_ids']);
         }
         
         $res = new \WP_Query( $args );
@@ -35,10 +35,10 @@ class HomeController
                 $res->the_post();
                 $current_post = get_post();
                 $thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id($current_post->ID), 'medium');
-                $thumbnail = $thumbnail_arr ? $thumbnail_arr[0] : $rt_config['default_image'];
+                $thumbnail = $thumbnail_arr ? $thumbnail_arr[0] : $vt_config['default_image'];
                 
                 $author_id = get_the_author_id();
-                $avatar = rt_get_custom_avatar_url($author_id);
+                $avatar = vt_get_custom_avatar_url($author_id);
                 
                 $output .= '<div class="media-item">
                     <div class="media-thumbnail">
@@ -67,7 +67,7 @@ class HomeController
                                 <i class="iconfont">&#xe752;</i>' .getPostViews(get_the_ID()). '
                             </span>';
                
-                if($rt_config['show_comments_counter']){
+                if($vt_config['show_comments_counter']){
                     $output .= '<span class="meta"><i class="iconfont">&#xe8a6;</i>'. $current_post->comment_count .'</span>';
                 }
 
@@ -105,7 +105,7 @@ class HomeController
         <div style='width:600px;margin:50px auto; padding-left:77px; background:#fff;font-size:16px;color:#55798d;padding-right80px;'>
             <p><img src='https://www.9-f.cn/wp-content/themes/nine/assets/images/logo.png' style='max-height:50px;user-select:none'></p>
             <h3>Nine 主题邮箱 SMTP 设置成功</h3>
-            <p>Nine 主题官网地址 <a href='https://javascript.net.cn/projects/nine'>https://javascript.net.cn/projects/nine</a></p>
+            <p>Nine 主题官网地址 <a href='https://vtheme.cn/themes/nine'>https://vtheme.cn/themes/nine</a></p>
         </div>
         ";
         $headers    = array('Content-Type: text/html; charset=UTF-8');
@@ -117,7 +117,7 @@ class HomeController
             $response->set_status(200);
             return $response;
         } else {
-            $error_message = get_option('rt_mail_error');
+            $error_message = get_option('vt_mail_error');
             $response = new \WP_REST_Response(array(
                 "message"   => "测试邮件发送失败",
                 "detail"    => $error_message

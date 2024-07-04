@@ -15,7 +15,7 @@ get_header();
 /**
  * 分类页 Banner
  */
-$rt_config = rt_get_config();
+$vt_config = vt_get_config();
 $category = get_term($cat);
 
 // 获取分类第一篇文章的缩略图或者图片
@@ -33,7 +33,7 @@ if($query_posts->posts){
 
 // 列数
 $col_num_class = 'col-num-5';
-switch ($rt_config['list_cards_col']) {
+switch ($vt_config['list_cards_col']) {
     case '3':
         $col_num_class = 'col-num-3'; break;
     case '4':
@@ -87,7 +87,7 @@ switch ($rt_config['list_cards_col']) {
                             ?>
                                 <img src="<?php echo $thumbnail_image[0] ?>" alt="<?php the_title(); ?>">
                             <?php else : ?>
-                                <img src="<?php echo $rt_config['default_image'] ?>">
+                                <img src="<?php echo $vt_config['default_image'] ?>">
                             <?php endif ?>
                         </a>
                         <div class="item-info">

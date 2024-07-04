@@ -7,7 +7,7 @@
     width: 100%;
     min-height: 20vw;
     color: #f8f8f8;
-    font-size: var(--rt-font-size-sm);
+    font-size: var(--vt-font-size-sm);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -43,12 +43,12 @@
 }
 
 .banner .banner-container .title {
-    font-size: var(--rt-font-size-base);
+    font-size: var(--vt-font-size-base);
     font-weight: 900;
 }
 .banner .banner-container .description {
     margin-top: 10px;
-    font-size: var(--rt-font-size-sm);
+    font-size: var(--vt-font-size-sm);
     line-height: 18px;
 }
 
@@ -64,13 +64,13 @@
         
     }
     .banner .banner-container .title {
-        font-size: var(--rt-font-size-lg);
+        font-size: var(--vt-font-size-lg);
         font-weight: 900;
     }
     .banner .banner-container .description  {
         width: 500px;
         margin-top: 10px;
-        font-size: var(--rt-font-size-base);
+        font-size: var(--vt-font-size-base);
         line-height: 25px;
     }
 }

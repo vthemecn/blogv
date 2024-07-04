@@ -10,7 +10,7 @@ get_header();
 /**
  * 分类页 Banner
  */
-$rt_options = rt_get_config();
+$vt_options = vt_get_config();
 
 // 获取分类第一篇文章的缩略图或者图片
 $banner_image = get_bloginfo('template_url') . '/assets/images/user-center-banner.jpg';
@@ -41,7 +41,7 @@ $banner_image = get_bloginfo('template_url') . '/assets/images/user-center-banne
         <?php if (have_posts()) : ?>
             <div class="media-list">
                 <?php while (have_posts()) : the_post(); ?>
-                    <?php $rt_post_type = get_post_meta( $post->ID, 'rt_post_type', true ); ?>
+                    <?php $vt_post_type = get_post_meta( $post->ID, 'vt_post_type', true ); ?>
                     <?php get_template_part( 'templates/media/media' ); ?>
                 <?php endwhile; ?>
             </div>

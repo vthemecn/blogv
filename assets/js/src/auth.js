@@ -47,7 +47,7 @@ function loginInit() {
       });
       axios({
         method: 'post',
-        url: '/wp-json/rangtuo/v1/auth/login',
+        url: '/wp-json/vtheme/v1/auth/login',
         data: payload
       })
         .then(function (response) {
@@ -102,7 +102,7 @@ function registerInit() {
 
       axios({
         method: 'post',
-        url: '/wp-json/rangtuo/v1/auth/register',
+        url: '/wp-json/vtheme/v1/auth/register',
         data: payload
       })
         .then(function (response) {
@@ -167,7 +167,7 @@ async function sendCodeAction() {
   });
   axios({
     method: 'post',
-    url: '/wp-json/rangtuo/v1/auth/send-code',
+    url: '/wp-json/vtheme/v1/auth/send-code',
     data: payload
   })
     .then(function (response) {
@@ -213,7 +213,7 @@ function resetPasswordInit() {
 
     axios({
       method: 'post',
-      url: '/wp-json/rangtuo/v1/auth/reset-password',
+      url: '/wp-json/vtheme/v1/auth/reset-password',
       data: payload
     })
       .then(function (response) {
@@ -253,7 +253,7 @@ function logoutInit() {
   logoutButton.addEventListener('click', async function () {
     axios({
       method: 'post',
-      url: '/wp-json/rangtuo/v1/auth/logout'
+      url: '/wp-json/vtheme/v1/auth/logout'
     })
       .then(function (response) {
         console.log(response);

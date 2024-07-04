@@ -1,8 +1,8 @@
 <?php
 
-$rt_config = rt_get_config();
+$vt_config = vt_get_config();
 
-if (!$rt_config['frontend_is_on']) {
+if (!$vt_config['frontend_is_on']) {
     header('HTTP/1.1 403 Forbidden');
     echo '{error:"403 当前主题关闭了前端，仅能通过接口访问"}';
     exit();
@@ -18,8 +18,8 @@ if (!$rt_config['frontend_is_on']) {
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php
-    $keywords    = $rt_config['meta_keywords'];
-    $description = $rt_config['meta_description'];
+    $keywords    = $vt_config['meta_keywords'];
+    $description = $vt_config['meta_description'];
     if (is_home()) {
     } elseif (is_category()) {
         // $keywords = single_cat_title('', false);
@@ -31,7 +31,7 @@ if (!$rt_config['frontend_is_on']) {
         $description = get_the_excerpt();
     }
     $keywords    = $keywords ? trim(strip_tags($keywords)) : '';
-    $description = $description ? trim(strip_tags($description)) : $rt_config['meta_description'];
+    $description = $description ? trim(strip_tags($description)) : $vt_config['meta_description'];
     ?>
     <meta name="keywords" content="<?php echo $keywords ?>">
     <meta name="description" content="<?php echo $description ?>">
@@ -47,9 +47,9 @@ if (!$rt_config['frontend_is_on']) {
 
     <?php
     // 自定义颜色
-    $primary_color = $rt_config['basic_style_color'];
-    $hover_color = $rt_config['basic_style_color'];
-    switch ($rt_config['basic_style']) {
+    $primary_color = $vt_config['basic_style_color'];
+    $hover_color = $vt_config['basic_style_color'];
+    switch ($vt_config['basic_style']) {
         case "0": break;
         case "1": $primary_color = '#007aff'; $hover_color = '#007aff'; break;
         case "2": $primary_color = '#dd524d'; $hover_color = '#dd524d'; break;
@@ -57,37 +57,37 @@ if (!$rt_config['frontend_is_on']) {
         case "4": $primary_color = '#62ad4c'; $hover_color = '#62ad4c'; break;
         default: $primary_color = '#007aff'; $hover_color = '#007aff';
     }
-    echo "<style> :root{ --rt-color-primary:{$primary_color}; --rt-color-primary-hover:{ $hover_color}; }  </style>";
+    echo "<style> :root{ --vt-color-primary:{$primary_color}; --vt-color-primary-hover:{ $hover_color}; }  </style>";
     ?>
 
-    <?php if($rt_config['background_image']): ?>
-    <style>body:before { background-image:url(<?php echo $rt_config['background_image']?>) }</style>
+    <?php if($vt_config['background_image']): ?>
+    <style>body:before { background-image:url(<?php echo $vt_config['background_image']?>) }</style>
     <?php endif ?>
     
-    <style> .card-item .card-image { padding-bottom: <?php echo $rt_config['image_items_height'] ?> !important; } </style>
+    <style> .card-item .card-image { padding-bottom: <?php echo $vt_config['image_items_height'] ?> !important; } </style>
 </head>
 
 <?php
 global $widget_title_class;
-$widget_title_class = $rt_config['widget_title_type'] ? ' type-'.$rt_config['widget_title_type'] : '';
+$widget_title_class = $vt_config['widget_title_type'] ? ' type-'.$vt_config['widget_title_type'] : '';
 
 /* 暗黑模式 */
 $is_dark_mode = false;
 $dark_mode_class = '';
-if($rt_config['dark_mode_type'] == 0){ // 禁用
+if($vt_config['dark_mode_type'] == 0){ // 禁用
     $_COOKIE['darkModeType'] = 0;
-} elseif($rt_config['dark_mode_type'] == 1) { // 手动
+} elseif($vt_config['dark_mode_type'] == 1) { // 手动
     $_COOKIE['darkModeType'] = 1;
     $is_dark_mode = isset($_COOKIE['darkMode']) && $_COOKIE['darkMode'] == 1 ? true : false;
     $dark_mode_class = $is_dark_mode ? "dark-mode" : '';
-} elseif($rt_config['dark_mode_type'] == 2) { // 自动
+} elseif($vt_config['dark_mode_type'] == 2) { // 自动
     $_COOKIE['darkModeType'] = 2;
     $is_dark_mode = isset($_COOKIE['darkMode']) && $_COOKIE['darkMode'] == 1 ? true : false;
     $dark_mode_class = 'dark-mode-auto';
 }
 
 /* logo 闪光 */
-$flash_class = $rt_config['logo_is_flashing'] ? 'flash' : '';
+$flash_class = $vt_config['logo_is_flashing'] ? 'flash' : '';
 ?>
 
 <body class="<?php echo $dark_mode_class ?>">
@@ -105,7 +105,7 @@ $flash_class = $rt_config['logo_is_flashing'] ? 'flash' : '';
                 <i class="iconfont">&#xe8aa;</i>
             </a>
             <a href="<?php bloginfo('siteurl') ?>" class="logo <?php echo $flash_class?>" title="" rel="home">
-                <img src="<?php echo $rt_config['site_logo']; ?>" alt="<?php bloginfo('name') ?>">
+                <img src="<?php echo $vt_config['site_logo']; ?>" alt="<?php bloginfo('name') ?>">
             </a>
             <a class="top-nav-button menu-button" href="javascript:;">
                 <i class="iconfont">&#xe7f6;</i>
@@ -116,12 +116,12 @@ $flash_class = $rt_config['logo_is_flashing'] ? 'flash' : '';
         <div class="mobile-menu-modal">
             <div class="mobile-menu">
                 <div class="action-widget">
-                    <?php if ($current_user->ID && $rt_config['is_show_login_register']) : ?>
+                    <?php if ($current_user->ID && $vt_config['is_show_login_register']) : ?>
                         <a class="action-button" href="<?php bloginfo('siteurl') ?>/wp-admin/index.php">
                             <i class="iconfont">&#xe8a5;</i>
                         </a>
                     <?php endif ?>
-                    <?php if($rt_config['dark_mode_type'] == 1): ?>
+                    <?php if($vt_config['dark_mode_type'] == 1): ?>
                         <a class="action-button dark-mode-button  <?php echo $is_dark_mode ? 'dark' : '' ?>">
                             <i class="iconfont sun">&#xe7ff;</i>
                             <i class="iconfont moon">&#xe804;</i>
@@ -133,7 +133,7 @@ $flash_class = $rt_config['logo_is_flashing'] ? 'flash' : '';
                 </div>
 
                 <div class="site-logo">
-                    <img src="<?php echo $rt_config['site_logo']?>">
+                    <img src="<?php echo $vt_config['site_logo']?>">
                 </div>
                 
                 <?php
@@ -188,7 +188,7 @@ $flash_class = $rt_config['logo_is_flashing'] ? 'flash' : '';
     <header class="header pc">
         <div class="header-nav">
             <a href="<?php bloginfo('siteurl') ?>" class="logo <?php echo $flash_class?>" title="" rel="home">
-                <img src="<?php echo $rt_config['site_logo']; ?>" alt="<?php bloginfo('name') ?>">
+                <img src="<?php echo $vt_config['site_logo']; ?>" alt="<?php bloginfo('name') ?>">
             </a>
 
             <?php
@@ -222,19 +222,19 @@ $flash_class = $rt_config['logo_is_flashing'] ? 'flash' : '';
                 <a class="nav-button search-toggle-button" href="javascript:;">
                     <i class="iconfont">&#xe8aa;</i>
                 </a>
-                <?php if($rt_config['dark_mode_type'] == 1): ?>
+                <?php if($vt_config['dark_mode_type'] == 1): ?>
                     <a class="nav-button dark-mode-button  <?php echo $is_dark_mode ? 'dark' : '' ?>">
                         <i class="iconfont sun">&#xe7ff;</i>
                         <i class="iconfont moon">&#xe804;</i>
                     </a>
                 <?php endif; ?>
-                <?php if (!$current_user->ID && $rt_config['is_show_login_register']) : ?>
+                <?php if (!$current_user->ID && $vt_config['is_show_login_register']) : ?>
                     <a href="/wp-login.php" class="button login-button">登录</a>
                 <?php endif ?>
             </div>
 
             <?php if ($current_user->ID) : ?>
-                <?php $avatar = rt_get_custom_avatar_url($current_user->ID) ?>
+                <?php $avatar = vt_get_custom_avatar_url($current_user->ID) ?>
                 <a href="javascript:;" class="header-top-avatar">
                     <img src="<?php echo $avatar ?>" alt="">
                 </a>
@@ -242,16 +242,20 @@ $flash_class = $rt_config['logo_is_flashing'] ? 'flash' : '';
             
             <!-- 用户登录后的弹窗 -->
             <?php if ($current_user->ID) : ?>
+                <?php
+                $nickname = get_user_meta($current_user->ID, 'nickname', true);
+                $description = get_user_meta($current_user->ID, 'description', true);
+                ?>
                 <div class="user-widget">
                     <div class="user-header">
                         <img src="<?php echo $avatar ?>" class="avatar">
                         <div class="user-meta">
-                            <div class="user-nickname">用户昵称</div>
-                            <div class="user-more">其他用户信息</div>
+                            <div class="user-nickname"><?php echo $nickname ?></div>
+                            <div class="user-more"><?php echo $description ?></div>
                         </div>
                     </div>
                     <div class="links-widget">
-                        <?php if($rt_config['user_center_is_on']):?>
+                        <?php if($vt_config['user_center_is_on']):?>
                             <a href="<?php bloginfo('siteurl') ?>/users/<?php echo $current_user->ID ?>">
                                 <i class="iconfont">&#xe8a5;</i>个人中心
                             </a>

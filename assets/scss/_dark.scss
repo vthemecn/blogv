@@ -1,12 +1,12 @@
 .dark-mode{
   input, textarea{
-    color: var(--rt-text-color);
-    background-color: var(--rt-bg-color-card);
+    color: var(--vt-text-color);
+    background-color: var(--vt-bg-color-card);
   }
   
   input:focus-visible, textarea:focus-visible{
     // outline: none;
-    outline: 1px solid var(--rt-color-primary);
+    outline: 1px solid var(--vt-color-primary);
   }
   
   

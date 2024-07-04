@@ -10,7 +10,7 @@
 
 get_header();
 
-$rt_options = rt_get_config();
+$vt_options = vt_get_config();
 
 ?>
 

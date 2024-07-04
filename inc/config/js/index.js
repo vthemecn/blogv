@@ -142,7 +142,7 @@ window.addEventListener('load', function(){
           });
 
           // 修改地址
-          let url ="?page=rangtuo-options&action=home&tab=" + this.dataset.id;
+          let url ="?page=vtheme-options&action=home&tab=" + this.dataset.id;
           let title = '标题';
           history.pushState({id:0},title,url);
       });

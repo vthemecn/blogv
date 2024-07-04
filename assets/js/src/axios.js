@@ -1,7 +1,7 @@
 import axios from '../lib/axios/axios.esm';
 import toast from './toast';
 
-// axios.defaults.baseURL = 'https://dev.rangtuo.com';
+// axios.defaults.baseURL = 'https://dev.vtheme.cn';
 axios.defaults.baseURL = document.querySelector('meta[name="api-url"]').getAttribute('content');
 axios.defaults.headers.common['Authorization'] = 'AUTH_TOKEN';
 axios.defaults.headers.post['Content-Type'] = 'application/json';

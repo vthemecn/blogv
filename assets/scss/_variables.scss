@@ -1,55 +1,55 @@
 :root {
   // 行为相关颜色
-  --rt-color-primary: #007aff;
-  --rt-color-success: #4cd964;
-  --rt-color-warning: #f0ad4e;
-  --rt-color-error: #dd524d;
+  --vt-color-primary: #007aff;
+  --vt-color-success: #4cd964;
+  --vt-color-warning: #f0ad4e;
+  --vt-color-error: #dd524d;
   
   // 文字尺寸
-  --rt-font-size-sm: 13px;
-  --rt-font-size-base:17px;
-  --rt-font-size-lg: 22px;
+  --vt-font-size-sm: 13px;
+  --vt-font-size-base:17px;
+  --vt-font-size-lg: 22px;
   
   // 文字基本颜色
-  --rt-text-color: #333; //基本色
-  --rt-text-color-inverse: #fff; //反色
-  --rt-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
-  --rt-text-color-placeholder: #8c8c8c;
-  --rt-text-color-disable: #e2e4eb;
+  --vt-text-color: #333; //基本色
+  --vt-text-color-inverse: #fff; //反色
+  --vt-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
+  --vt-text-color-placeholder: #8c8c8c;
+  --vt-text-color-disable: #e2e4eb;
 
   // 背景颜色
-  --rt-bg-color: #f7f7fb;
-  --rt-bg-color-grey: #f1f1f1;
-  --rt-bg-color-hover: #f2f2f2;
-  --rt-bg-color-mask: rgba(50, 50, 50, 0.5);
-  --rt-bg-color-card: #ffffff;
+  --vt-bg-color: #f7f7fb;
+  --vt-bg-color-grey: #f1f1f1;
+  --vt-bg-color-hover: #f2f2f2;
+  --vt-bg-color-mask: rgba(50, 50, 50, 0.5);
+  --vt-bg-color-card: #ffffff;
 
   // 边框
-  --rt-border-radius: 8px;
-  --rt-border-color: #e5ebeb;
-  --rt-shadow-color: #d1d2d3;
+  --vt-border-radius: 8px;
+  --vt-border-color: #e5ebeb;
+  --vt-shadow-color: #d1d2d3;
 }
 
 
 // 夜间模式
 body.dark-mode {
   // 文字基本颜色 
-  --rt-text-color: #b9b9b9; //基本色
-  --rt-text-color-inverse: #333; //反色
-  --rt-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
-  --rt-text-color-placeholder: #808080;
-  --rt-text-color-disable: #404244;
+  --vt-text-color: #b9b9b9; //基本色
+  --vt-text-color-inverse: #333; //反色
+  --vt-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
+  --vt-text-color-placeholder: #808080;
+  --vt-text-color-disable: #404244;
 
   // 背景颜色 
-  --rt-bg-color: #2c2c2c;
-  --rt-bg-color-grey: #5a5a5a;
-  --rt-bg-color-hover: #979797;
-  --rt-bg-color-mask: rgba(50, 50, 50, 0.5);
-  --rt-bg-color-card: #272727;
+  --vt-bg-color: #2c2c2c;
+  --vt-bg-color-grey: #5a5a5a;
+  --vt-bg-color-hover: #979797;
+  --vt-bg-color-mask: rgba(50, 50, 50, 0.5);
+  --vt-bg-color-card: #272727;
   
   // 边框
-  --rt-border-color: #303030;
-  --rt-shadow-color: #181818;
+  --vt-border-color: #303030;
+  --vt-shadow-color: #181818;
 }
 body.dark-mode {
   img {  filter: brightness(70%); }
@@ -60,22 +60,22 @@ body.dark-mode {
 @media (prefers-color-scheme: dark){
   body.dark-mode-auto{
     // 文字基本颜色 
-    --rt-text-color: #b9b9b9; //基本色
-    --rt-text-color-inverse: #333; //反色
-    --rt-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
-    --rt-text-color-placeholder: #808080;
-    --rt-text-color-disable: #404244;
+    --vt-text-color: #b9b9b9; //基本色
+    --vt-text-color-inverse: #333; //反色
+    --vt-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
+    --vt-text-color-placeholder: #808080;
+    --vt-text-color-disable: #404244;
 
     // 背景颜色 
-    --rt-bg-color: #2c2c2c;
-    --rt-bg-color-grey: #5a5a5a;
-    --rt-bg-color-hover: #979797;
-    --rt-bg-color-mask: rgba(50, 50, 50, 0.5);
-    --rt-bg-color-card: #272727;
+    --vt-bg-color: #2c2c2c;
+    --vt-bg-color-grey: #5a5a5a;
+    --vt-bg-color-hover: #979797;
+    --vt-bg-color-mask: rgba(50, 50, 50, 0.5);
+    --vt-bg-color-card: #272727;
     
     // 边框
-    --rt-border-color: #303030;
-    --rt-shadow-color: #181818;
+    --vt-border-color: #303030;
+    --vt-shadow-color: #181818;
   }
   body.dark-mode-auto{
     img {  filter: brightness(70%); }

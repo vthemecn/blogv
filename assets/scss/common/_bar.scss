@@ -30,15 +30,15 @@
   align-items: center;
   cursor: pointer;
   overflow: hidden;
-  box-shadow: 0 0 5px 0 var(--rt-shadow-color);
+  box-shadow: 0 0 5px 0 var(--vt-shadow-color);
   border-radius: 50%;
-  background-color: var(--rt-bg-color-card);
+  background-color: var(--vt-bg-color-card);
   cursor: pointer;
 }
 .float-widget a.tool-button i{
   z-index: 1;
   font-size: 25px;
-  color: var(--rt-text-color);
+  color: var(--vt-text-color);
   user-select: none;
 }
 

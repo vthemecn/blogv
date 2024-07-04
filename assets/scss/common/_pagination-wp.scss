@@ -24,19 +24,19 @@ nav.pagination .nav-links > * {
   line-height: 2.1em;
   text-align: center;
   font-size: 0.4em;
-  border: 1px solid var(--rt-border-color);
+  border: 1px solid var(--vt-border-color);
   margin: 0px 7px 0px 0;
   display: block;
-  background-color: var(--rt-bg-color-card);
-  box-shadow: 0 1px 3px var(--rt-shadow-color);
+  background-color: var(--vt-bg-color-card);
+  box-shadow: 0 1px 3px var(--vt-shadow-color);
   padding: 1px 1px;
 }
 nav.pagination .nav-links > .current {
-  background-color: var(--rt-color-primary);
-  border-color: var(--rt-color-primary);
+  background-color: var(--vt-color-primary);
+  border-color: var(--vt-color-primary);
   color: #fff;
   border-radius: 3px;
-  box-shadow: 0 1px 3px var(--rt-shadow-color);
+  box-shadow: 0 1px 3px var(--vt-shadow-color);
   // cursor: none;
 }
 
@@ -49,6 +49,6 @@ nav.pagination a {
   border-radius: 3px;
 }
 nav.pagination a:hover {
-  color: var(--rt-color-primary);
-  border-color: var(--rt-color-primary);
+  color: var(--vt-color-primary);
+  border-color: var(--vt-color-primary);
 }

@@ -9,7 +9,7 @@
 .header.mobile {
   width: 100%;
   height: 50px;
-  background-color: var(--rt-bg-color-card);
+  background-color: var(--vt-bg-color-card);
 
   // 顶部导航
   .header-nav {
@@ -22,7 +22,7 @@
     align-items: center;
     position: relative;
     z-index: 2;
-    box-shadow: 0px 0px 3px var(--rt-shadow-color);
+    box-shadow: 0px 0px 3px var(--vt-shadow-color);
 
     a.logo {
       display: block;
@@ -54,13 +54,13 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--rt-bg-color-mask);
+    background-color: var(--vt-bg-color-mask);
     display: none;
   }
   .mobile-menu-modal.show { display: flex; }
   .mobile-menu {
     box-sizing: content-box;
-    background-color: var(--rt-bg-color-card);
+    background-color: var(--vt-bg-color-card);
     // backdrop-filter: saturate(97%) blur(41px);
     position: fixed;
     top: 0;
@@ -86,7 +86,7 @@
     width: 30px;
     height: 30px;
     margin-left: 10px;
-    color: var(--rt-text-color);
+    color: var(--vt-text-color);
     cursor: pointer;
   }
   .action-widget .action-button  i { font-size: 25px; }
@@ -120,7 +120,7 @@
     width: 100%;
     height: auto;
     line-height: 30px;
-    color: var(--rt-text-color);
+    color: var(--vt-text-color);
     position: relative;
     margin: 15px auto;
   }
@@ -159,7 +159,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--rt-bg-color-mask);
+    background-color: var(--vt-bg-color-mask);
     // background-color: rgba(173, 89, 225, 0.7);
     display: none;
     justify-content: center;
@@ -175,9 +175,9 @@
       width: 90%;
       max-width: 300px;
       padding: 20px;
-      border-radius: var(--rt-border-radius);
-      background-color: var(--rt-bg-color-card);
-      box-shadow: 0 0 3px var(--rt-shadow-color);
+      border-radius: var(--vt-border-radius);
+      background-color: var(--vt-bg-color-card);
+      box-shadow: 0 0 3px var(--vt-shadow-color);
 
       .modal-close-button {
         display: flex;
@@ -198,7 +198,7 @@
       .modal-header {
         text-align: center;
         margin-bottom: 20px;
-        color: var(--rt-text-color);
+        color: var(--vt-text-color);
       }
 
       .field {
@@ -208,7 +208,7 @@
         margin-bottom: 20px;
         position: relative;
         font-size: 14px;
-        color: var(--rt-text-color);
+        color: var(--vt-text-color);
       }
 
       .field-text {
@@ -216,10 +216,10 @@
           width: 100%;
           height: 35px;
           box-sizing: border-box;
-          color: var(--rt-text-color);
-          border: 1px solid var(--rt-border-color);
-          border-radius: var(--rt-border-radius);
-          background-color: var(--rt-bg-color-card);
+          color: var(--vt-text-color);
+          border: 1px solid var(--vt-border-color);
+          border-radius: var(--vt-border-radius);
+          background-color: var(--vt-bg-color-card);
           text-indent: 10px;
         }
       }
@@ -231,9 +231,9 @@
           width: 100px;
           height: 35px;
           border: 1px solid transparent;
-          background-color: var(--rt-color-primary);
-          border-radius: var(--rt-border-radius);
-          color: var(--rt-text-color-inverse);
+          background-color: var(--vt-color-primary);
+          border-radius: var(--vt-border-radius);
+          color: var(--vt-text-color-inverse);
           display: block;
           margin: 0px auto;
         }
@@ -261,8 +261,8 @@
     display: block;
     width: 100%;
     height: 60px;
-    background-color: var(--rt-bg-color-card);
-    box-shadow: 0px 0px 3px 0 var(--rt-shadow-color);
+    background-color: var(--vt-bg-color-card);
+    box-shadow: 0px 0px 3px 0 var(--vt-shadow-color);
     z-index: 9;
     position: relative;
   }
@@ -284,7 +284,7 @@
     width: auto;
     align-items: center;
     justify-content: flex-start;
-    font-size: var(--rt-font-size-lg);
+    font-size: var(--vt-font-size-lg);
     float: left;
   }
   .header.pc .header-nav a.logo img {
@@ -316,7 +316,7 @@
   }
 
   .pc-nav li a {
-    font-size: var(--rt-font-size-base);
+    font-size: var(--vt-font-size-base);
     display: block;
     white-space: nowrap;
     height: 60px;
@@ -331,9 +331,9 @@
   }
 
   .child-menu {
-    background-color: var(--rt-bg-color-card);
-    box-shadow: 0 0 3px 0 var(--rt-shadow-color);
-    border-radius: var(--rt-border-radius);
+    background-color: var(--vt-bg-color-card);
+    box-shadow: 0 0 3px 0 var(--vt-shadow-color);
+    border-radius: var(--vt-border-radius);
     position: absolute;
     top:60px;
     left:0;
@@ -390,11 +390,11 @@
       line-height: 30px;
       padding: 0px 10px;
       display: block;
-      // background-color: var(--rt-bg-color-grey);
+      // background-color: var(--vt-bg-color-grey);
       font-size: 15px;
       margin-left: 12px;
-      border-radius: var(--rt-border-radius);
-      border: 1px solid var(--rt-border-color);
+      border-radius: var(--vt-border-radius);
+      border: 1px solid var(--vt-border-color);
     }
     
     a.nav-button{
@@ -420,7 +420,7 @@
   }
   
   .header.pc .search-toggle-button.active{
-    color:var(--rt-color-primary);
+    color:var(--vt-color-primary);
   }
   
     
@@ -452,12 +452,12 @@
     position: absolute;
     top: 60px;
     left: 0;
-    background-color: var(--rt-bg-color-card);
-    box-shadow: 0 5px 5px 0 var(--rt-shadow-color);
+    background-color: var(--vt-bg-color-card);
+    box-shadow: 0 5px 5px 0 var(--vt-shadow-color);
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-    border-top: 1px solid var(--rt-border-color);
+    border-top: 1px solid var(--vt-border-color);
   }
   .search-widget.show{
     display: flex;
@@ -482,22 +482,22 @@
   .search-widget .search input{
     width: 410px;
     outline: none;
-    border:1px solid var(--rt-border-color);
-    border-radius:var(--rt-border-radius);
+    border:1px solid var(--vt-border-color);
+    border-radius:var(--vt-border-radius);
     text-indent: 10px;
   }
   .search-widget .search input:focus{
-    box-shadow: 0 0 3px 0 var(--rt-color-primary);
+    box-shadow: 0 0 3px 0 var(--vt-color-primary);
   }
   .search-widget .search .search-button{
     width: 80px;
-    border:1px solid var(--rt-color-primary);
-    background-color: var(--rt-color-primary);
-    border-radius:var(--rt-border-radius);
+    border:1px solid var(--vt-color-primary);
+    background-color: var(--vt-color-primary);
+    border-radius:var(--vt-border-radius);
   }
   .search-widget .search-button i{
     font-size: 30px;
-    color: var(--rt-text-color-inverse);
+    color: var(--vt-text-color-inverse);
   }
   
   
@@ -506,12 +506,12 @@
     position: absolute;
     right: 0;
     top: 60px;
-    // width: 200px;
+    width: 200px;
     min-height: 100px;
     padding: 15px;
-    background-color: var(--rt-bg-color-card);
-    box-shadow: 0 0 5px 0 var(--rt-shadow-color);
-    border-radius: var(--rt-border-radius);
+    background-color: var(--vt-bg-color-card);
+    box-shadow: 0 0 5px 0 var(--vt-shadow-color);
+    border-radius: var(--vt-border-radius);
     overflow: hidden;
     display: none;
   }
@@ -526,22 +526,24 @@
     height: 45px;
     object-fit: cover;
     border-radius: 50%;
-    border: 1px solid var(--rt-border-color);
+    border: 1px solid var(--vt-border-color);
     margin-right: 10px;
   }
   .user-widget .user-header .user-meta{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: var(--rt-font-size-sm);
+    align-items:center;
+    font-size: var(--vt-font-size-sm);
   }
   .user-widget .user-header .user-nickname{
-    font-size: var(--rt-font-size-base);
+    color: var(--vt-text-color);
+    font-size: var(--vt-font-size-base);
     font-weight: bold;
   }
   .user-widget .user-header .user-more{
     margin-top: 7px;
-    color:var(--rt-text-color-grey);
+    color:var(--vt-text-color-grey);
   }
   .user-widget .links-widget{
     display: flex;
@@ -553,7 +555,7 @@
     // font-size: ;
   }
   .user-widget .links-widget i{
-    color: var(--rt-color-primary);
+    color: var(--vt-color-primary);
     display: inline-block;
     position: relative;
     top:3px;

@@ -1,14 +1,14 @@
 <?php
-$rt_config = rt_get_config();
-$colored_class = $rt_config['footer_bg_type'] == 0 ? 'colored' : '';
+$vt_config = vt_get_config();
+$colored_class = $vt_config['footer_bg_type'] == 0 ? 'colored' : '';
 ?>
 
 <footer class="footer <?php echo $colored_class ?>">
     <div class="footer-container">
         <div class="footer-info">
-            <?php if($rt_config["footer_description"]):?>
+            <?php if($vt_config["footer_description"]):?>
                 <div class="footer-description">
-                    <?php echo $rt_config["footer_description"]; ?>
+                    <?php echo $vt_config["footer_description"]; ?>
                 </div>
             <?php endif ?>
 
@@ -39,14 +39,14 @@ $colored_class = $rt_config['footer_bg_type'] == 0 ? 'colored' : '';
     </div>
     
     <div class="footer-copyright">
-        <?php echo $rt_config['footer_copyright']; ?>
+        <?php echo $vt_config['footer_copyright']; ?>
         <span>
-            <a href="https://javascript.net.cn/projects/nine" target="_blank">Nine</a>
+            <a href="https://vtheme.cn/themes/nine" target="_blank">Nine</a>
         </span>
         
-        <?php if($rt_config['page_data_type'] == 1): ?>
+        <?php if($vt_config['page_data_type'] == 1): ?>
             <span>查询次数:<?php echo get_num_queries(); ?> </span>
-        <?php elseif($rt_config['page_data_type'] == 2) :?>
+        <?php elseif($vt_config['page_data_type'] == 2) :?>
             <span>查询次数:<?php echo get_num_queries(); ?>  </span>
             <span>执行时间:<?php echo timer_stop( false, 3 ); ?> </span>
         <?php endif ?>
@@ -57,7 +57,7 @@ $colored_class = $rt_config['footer_bg_type'] == 0 ? 'colored' : '';
 <?php
 require_once(get_stylesheet_directory() . "/templates/bar.php");
 
-if ($rt_config['is_mobile_nav_show'] == 1) {
+if ($vt_config['is_mobile_nav_show'] == 1) {
     include_once(get_template_directory() . "/templates/mobile-nav.php");
 }
 

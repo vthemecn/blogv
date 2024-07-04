@@ -3,18 +3,18 @@
 /**
  * 语言文件支持
  */
-add_action('after_setup_theme', 'rt_theme_load_theme_textdomain');
-function rt_theme_load_theme_textdomain()
+add_action('after_setup_theme', 'vt_theme_load_theme_textdomain');
+function vt_theme_load_theme_textdomain()
 {
-    load_theme_textdomain('rt', get_template_directory() . '/inc/languages');
+    load_theme_textdomain('vt', get_template_directory() . '/inc/languages');
 }
 
 /**
  * 根据设置，修改当前语言
  */
-add_filter('locale', 'rt_theme_localized');
-function rt_theme_localized($locale)
+add_filter('locale', 'vt_theme_localized');
+function vt_theme_localized($locale)
 {
-    $rt_config = rt_get_config();
-    return $rt_config['language'] ? $rt_config['language'] : 'zh_CN';
+    $vt_config = vt_get_config();
+    return $vt_config['language'] ? $vt_config['language'] : 'zh_CN';
 }

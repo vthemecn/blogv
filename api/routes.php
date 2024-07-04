@@ -32,7 +32,7 @@ add_action('rest_api_init', function (){
     register_rest_route('nine/v1', 'home/test', [
         'methods'  => 'GET',
         'callback' => function ($request) {
-            $user_id = rt_get_user_id();
+            $user_id = vt_get_user_id();
             echo $user_id;
 
             global $current_user;

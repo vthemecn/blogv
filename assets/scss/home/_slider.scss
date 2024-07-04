@@ -6,11 +6,11 @@
   box-sizing: border-box;
   margin: 0px auto;
   overflow: hidden;
-  border-radius: var(--rt-border-radius);
+  border-radius: var(--vt-border-radius);
 }
 
 .swiper-container .swiper-slide {
-  background: var(--rt-bg-color);
+  background: var(--vt-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@
 }
 
 .swiper-container .swiper-pagination-bullet-active {
-  background-color: var(--rt-color-primary);
+  background-color: var(--vt-color-primary);
 }
 
 // 按钮样式

@@ -7,9 +7,9 @@
 add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
 add_filter( 'use_widgets_block_editor', '__return_false');
 
-function rt_widgets_init() {
+function vt_widgets_init() {
     $args = array(
-        'name' => __( '默认侧边栏', 'rt' ),
+        'name' => __( '默认侧边栏', 'vt' ),
         'id' => 'default-sidebar',
         'before_widget' => '',
         'after_widget' => '',
@@ -19,7 +19,7 @@ function rt_widgets_init() {
     register_sidebar($args);
 
     $args = array(
-        'name' => __( '文章页侧边栏', 'rt' ),
+        'name' => __( '文章页侧边栏', 'vt' ),
         'id' => 'posts-sidebar',
         'before_widget' => '',
         'after_widget' => '',
@@ -28,7 +28,7 @@ function rt_widgets_init() {
     );
     register_sidebar($args);
 }
-add_action('init', 'rt_widgets_init');
+add_action('init', 'vt_widgets_init');
 
 
 /**
@@ -36,22 +36,17 @@ add_action('init', 'rt_widgets_init');
  */
 class ImageArticleWidget extends WP_Widget {
     function __construct(){
-        $this->WP_Widget( 'image-article-list', __( '【Nine】图文列表', 'rt' ), array( 'description' => __('图文列表描述', 'rt' ) ) );
+        $this->WP_Widget( 'image-article-list', __( '【Nine】图文列表', 'vt' ), array( 'description' => __('图文列表描述', 'vt' ) ) );
     }
  
     function widget( $args, $instance ){
         extract( $args, EXTR_SKIP );
         echo $before_widget;
 
-        $rt_config = rt_get_config();
-        switch ($rt_config['widget_title_type']) {
-            case '1': $widget_title_class='type-1'; break;
-            case '2': $widget_title_class='type-2'; break;
-            case '3': $widget_title_class='type-3'; break;
-            default:  $widget_title_class=''; break;
-        }
+        $vt_config = vt_get_config();
 
-        $title = $instance['title'] ? $instance['title'] : __('图文列表', 'rt');
+        $widget_title_class = $vt_config['widget_title_type'] ? 'type-' . $vt_config['widget_title_type'] : '';
+        $title = $instance['title'] ? $instance['title'] : __('图文列表', 'vt');
 
         $args = array(
             'post_type' => 'post',
@@ -99,7 +94,7 @@ class ImageArticleWidget extends WP_Widget {
                                     <?php if (!empty($thumbnail_image)) :?>
                                         <img src="<?php echo $thumbnail_image[0] ?>" alt="<?php the_title(); ?>">
                                     <?php else : ?>
-                                        <img src="<?php echo $rt_config['default_image'] ?>">
+                                        <img src="<?php echo $vt_config['default_image'] ?>">
                                     <?php endif ?>
                                     <div class="item-title">
                                         <div><?php the_title(); ?></div>
@@ -152,22 +147,17 @@ class ImageArticleWidget extends WP_Widget {
  */
 class HotWidget extends WP_Widget {
     function __construct(){
-        $this->WP_Widget( 'hot-list', __( '【Nine】热门', 'rt' ), array( 'description' => __( '热门描述', 'rt' ) ) );
+        $this->WP_Widget( 'hot-list', __( '【Nine】热门', 'vt' ), array( 'description' => __( '热门描述', 'vt' ) ) );
     }
  
     function widget( $args, $instance ){
         extract( $args, EXTR_SKIP );
         echo $before_widget;
 
-        $rt_config = rt_get_config();
-        switch ($rt_config['widget_title_type']) {
-            case '1': $widget_title_class='type-1'; break;
-            case '2': $widget_title_class='type-2'; break;
-            case '3': $widget_title_class='type-3'; break;
-            default:  $widget_title_class=''; break;
-        }
+        $vt_config = vt_get_config();
 
-        $title = $instance['title'] ? $instance['title'] : __('热门文章', 'rt');
+        $widget_title_class = $vt_config['widget_title_type'] ? 'type-' . $vt_config['widget_title_type'] : '';
+        $title = $instance['title'] ? $instance['title'] : __('热门文章', 'vt');
 
         $args = array(
             'post_type' => 'post',
@@ -231,24 +221,20 @@ class HotWidget extends WP_Widget {
  */
 class ArticleWidget extends WP_Widget {
     function __construct(){
-        $this->WP_Widget( 'article-list', __( '【Nine】文章列表', 'rt' ), array( 'description' => __( '文章列表描述', 'rt' ) ) );
+        $this->WP_Widget( 'article-list', __( '【Nine】文章列表', 'vt' ), array( 'description' => __( '文章列表描述', 'vt' ) ) );
     }
  
     function widget( $args, $instance ){
         extract( $args, EXTR_SKIP );
         echo $before_widget;
 
-        $rt_config = rt_get_config();
-        switch ($rt_config['widget_title_type']) {
-            case '1': $widget_title_class='type-1'; break;
-            case '2': $widget_title_class='type-2'; break;
-            case '3': $widget_title_class='type-3'; break;
-            default:  $widget_title_class=''; break;
-        }
+        $vt_config = vt_get_config();
+
+        $widget_title_class = $vt_config['widget_title_type'] ? 'type-' . $vt_config['widget_title_type'] : '';
 
         wp_reset_postdata();
 
-        $title = $instance['title'] ? $instance['title'] : __('文章列表', 'rt');
+        $title = $instance['title'] ? $instance['title'] : __('文章列表', 'vt');
 
         $args = array(
                     // 'post_type' => 'posts',
@@ -335,22 +321,17 @@ class ArticleWidget extends WP_Widget {
  */
 class ImageWidget extends WP_Widget {
     function __construct(){
-        $this->WP_Widget( 'image-list', __( '【Nine】图片列表', 'rt' ), array( 'description' => __( '图片列表描述', 'rt' ) ) );
+        $this->WP_Widget( 'image-list', __( '【Nine】图片列表', 'vt' ), array( 'description' => __( '图片列表描述', 'vt' ) ) );
     }
  
     function widget( $args, $instance ){
         extract( $args, EXTR_SKIP );
         echo $before_widget;
 
-        $rt_config = rt_get_config();
-        switch ($rt_config['widget_title_type']) {
-            case '1': $widget_title_class='type-1'; break;
-            case '2': $widget_title_class='type-2'; break;
-            case '3': $widget_title_class='type-3'; break;
-            default:  $widget_title_class=''; break;
-        }
+        $vt_config = vt_get_config();
 
-        $title = $instance['title'] ? $instance['title'] : __('图片列表', 'rt');
+        $widget_title_class = $vt_config['widget_title_type'] ? 'type-' . $vt_config['widget_title_type'] : '';
+        $title = $instance['title'] ? $instance['title'] : __('图片列表', 'vt');
 
         wp_reset_postdata();
         $args = array(
@@ -401,11 +382,11 @@ class ImageWidget extends WP_Widget {
                                 <?php if (!empty($thumbnail_image)) :?>
                                     <img src="<?php echo $thumbnail_image[0] ?>" alt="<?php the_title(); ?>">
                                 <?php else : ?>
-                                    <img src="<?php echo $rt_config['default_image'] ?>">
+                                    <img src="<?php echo $vt_config['default_image'] ?>">
                                 <?php endif ?>
                                 <div class="item-title"><?php the_title(); ?></div>
                                 <?php if($price): ?>
-                                    <div class="item-price"><?php echo $rt_options['item_currency_symbol']?> <?php echo $price; ?></div>
+                                    <div class="item-price"><?php echo $vt_options['item_currency_symbol']?> <?php echo $price; ?></div>
                                 <?php endif; ?>
                             </a>
                         </li>
@@ -454,22 +435,17 @@ class ImageWidget extends WP_Widget {
  */
 class CategoryWidget extends WP_Widget {
     function __construct(){
-        $this->WP_Widget( 'category-list', __( '【Nine】分类列表', 'rt' ), array( 'description' => __( '分类列表描述', 'rt' ) ) );
+        $this->WP_Widget( 'category-list', __( '【Nine】分类列表', 'vt' ), array( 'description' => __( '分类列表描述', 'vt' ) ) );
     }
  
     function widget( $args, $instance ){
         extract( $args, EXTR_SKIP );
         echo $before_widget;
 
-        $rt_config = rt_get_config();
-        switch ($rt_config['widget_title_type']) {
-            case '1': $widget_title_class='type-1'; break;
-            case '2': $widget_title_class='type-2'; break;
-            case '3': $widget_title_class='type-3'; break;
-            default:  $widget_title_class=''; break;
-        }
+        $vt_config = vt_get_config();
 
-        $title = $instance['title'] ? $instance['title'] : __('分类列表', 'rt');
+        $widget_title_class = $vt_config['widget_title_type'] ? 'type-' . $vt_config['widget_title_type'] : '';
+        $title = $instance['title'] ? $instance['title'] : __('分类列表', 'vt');
 
         $child_categories = get_categories(array(
             'child_of' => $instance['cat_id'],
@@ -533,7 +509,7 @@ class CategoryWidget extends WP_Widget {
  */
 class UserWidget extends WP_Widget {
     function __construct(){
-        $this->WP_Widget( 'user-widget', __( '【Nine】用户卡片', 'rt' ), array( 'description' => __( '用户卡片描述', 'rt' ) ) );
+        $this->WP_Widget( 'user-widget', __( '【Nine】用户卡片', 'vt' ), array( 'description' => __( '用户卡片描述', 'vt' ) ) );
     }
  
     function widget( $args, $instance ){
@@ -543,14 +519,9 @@ class UserWidget extends WP_Widget {
         global $wpdb;
         wp_reset_postdata();
 
-        $rt_config = rt_get_config();
-        switch ($rt_config['widget_title_type']) {
-            case '1': $widget_title_class='type-1'; break;
-            case '2': $widget_title_class='type-2'; break;
-            case '3': $widget_title_class='type-3'; break;
-            default:  $widget_title_class=''; break;
-        }
-
+        $vt_config = vt_get_config();
+        
+        $widget_title_class = $vt_config['widget_title_type'] ? 'type-' . $vt_config['widget_title_type'] : '';
         $title = $instance['title'];
 
         $user_id = get_the_author_meta('ID');
@@ -561,7 +532,7 @@ class UserWidget extends WP_Widget {
 
         $nickname = get_user_meta($user_id, 'nickname', true);
 
-        $sql = "SELECT count(id) AS counter FROM wp_posts WHERE post_author=%d";
+        $sql = "SELECT count(id) AS counter FROM wp_posts WHERE post_author=%d AND post_type='post' AND post_status='publish'";
         $res = $wpdb->get_results($wpdb->prepare($sql, [$user_id]), ARRAY_A);
         $posts_counter = $res[0]['counter'] ? $res[0]['counter'] : 0;
 
@@ -569,7 +540,7 @@ class UserWidget extends WP_Widget {
         $res = $wpdb->get_results($wpdb->prepare($sql, [$user_id]), ARRAY_A);
         $comments_counter = $res[0]['counter'] ? $res[0]['counter'] : 0;
 
-        $sql = "SELECT count(id) AS counter FROM wp_rt_star WHERE type='like' AND user_id=%d";
+        $sql = "SELECT count(id) AS counter FROM wp_vt_star WHERE type='like' AND user_id=%d";
         $res = $wpdb->get_results($wpdb->prepare($sql, [$user_id]), ARRAY_A);
         $like_counter = $res[0]['counter'] ? $res[0]['counter'] : 0;
 
@@ -634,7 +605,7 @@ class UserWidget extends WP_Widget {
  */
 class HtmlWidget extends WP_Widget {
     function __construct(){
-        $this->WP_Widget( 'html-widget', __( '【Nine】HTML卡片', 'rt' ), array( 'description' => __( 'HTML卡片描述', 'rt' ) ) );
+        $this->WP_Widget( 'html-widget', __( '【Nine】HTML卡片', 'vt' ), array( 'description' => __( 'HTML卡片描述', 'vt' ) ) );
     }
  
     function widget( $args, $instance ){
@@ -644,7 +615,7 @@ class HtmlWidget extends WP_Widget {
         global $wpdb;
         wp_reset_postdata();
 
-        $rt_config = rt_get_config();
+        $vt_config = vt_get_config();
         $html = $instance['html'];
 
         ?>
@@ -676,7 +647,7 @@ class HtmlWidget extends WP_Widget {
 
 
 
-function rt_add_widget(){
+function vt_add_widget(){
     register_widget('HotWidget');
     register_widget('ArticleWidget');
     register_widget('ImageArticleWidget');
@@ -686,4 +657,4 @@ function rt_add_widget(){
     register_widget('HtmlWidget');
 }
 
-add_action( 'widgets_init', 'rt_add_widget' );
+add_action( 'widgets_init', 'vt_add_widget' );

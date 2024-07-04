@@ -7,7 +7,7 @@
  * @link https://github.com/soushenji
  */
 
-// $rt_options = rt_get_config();
+// $vt_options = vt_get_config();
 
 // 打印函数
 if (!function_exists('p')) :
@@ -35,12 +35,12 @@ require_once TEMP_DIR . '/inc/rewrite.php';
 require_once TEMP_DIR . '/api/routes.php';
 
 
-$rt_config = rt_get_config();
+$vt_config = vt_get_config();
 
 /*
  * 获取自定义头像
  */
-function rt_get_custom_avatar_url($user_id)
+function vt_get_custom_avatar_url($user_id)
 {
     $attachment_id = get_user_meta($user_id, "user_avatar_attachment_id")[0];
     if ($attachment_id) {
@@ -55,12 +55,12 @@ function rt_get_custom_avatar_url($user_id)
  * 获取特色图片 url
  * @param {int} $post_id 文章ID
  */
-function rt_get_thumbnail_url($post_id, $size='thumbnail')
+function vt_get_thumbnail_url($post_id, $size='thumbnail')
 {
     $url = get_the_post_thumbnail_url($post_id, $size);
     if (!$url) {
         // $url = get_bloginfo('template_directory') . '/assets/images/default.jpg';
-        $url = $rt_config['default_image'];
+        $url = $vt_config['default_image'];
     }
     return $url;
 }
@@ -107,7 +107,7 @@ function get_breadcrumbs()
             echo " &gt; 404 Not Found";
         } elseif (is_single()) {
             $post_id = get_the_ID();
-            echo ' &gt; ' . rt_get_post_category_name($post_id) . ' > ';
+            echo ' &gt; ' . vt_get_post_category_name($post_id) . ' > ';
         } elseif (is_page()) {
             $post = $wp_query->get_queried_object();
             if ($post->post_parent == 0) {
@@ -133,7 +133,7 @@ function get_breadcrumbs()
 }
 
 
-function rt_get_post_category_name($post_ID){
+function vt_get_post_category_name($post_ID){
     global $wpdb;
     $sql="SELECT `term_taxonomy_id` FROM $wpdb->term_relationships WHERE `object_id`='".intval($post_ID)."';";
     $cat_id_arr = $wpdb->get_results($sql,ARRAY_A);
@@ -209,11 +209,11 @@ function friendly_time($ptime)
 
 
 
-function rt_custom_js_and_css() {
+function vt_custom_js_and_css() {
     $current_theme = wp_get_theme();
     wp_enqueue_style('customstyle', get_template_directory_uri() . '/assets/css/style.css', array(), $current_theme->get('Version'), 'all');
 }
-add_action('wp_enqueue_scripts', 'rt_custom_js_and_css');
+add_action('wp_enqueue_scripts', 'vt_custom_js_and_css');
 
 
 add_filter('post_type_link', 'custom_type_link', 1, 3);
@@ -236,7 +236,7 @@ function custom_type_rewrites_init()
 /**
  * 参考：https://stackoverflow.com/questions/62241215/get-current-user-id-returns-0-even-after-modificaton-to-user-php/62242542#62242542
  */
-function rt_get_user_id()
+function vt_get_user_id()
 {
     $user_id = apply_filters('determine_current_user', false);
     wp_set_current_user($user_id);

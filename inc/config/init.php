@@ -6,13 +6,13 @@
 defined('ABSPATH') || exit;
 require_once get_template_directory() . "/inc/config/config.php";
 
-add_action('admin_menu', 'rt_options_init');
-function rt_options_init()
+add_action('admin_menu', 'vt_options_init');
+function vt_options_init()
 {
 	// 添加顶部菜单
     if(current_user_can( 'manage_options' )){
-        add_theme_page("Nine 主题设置", "Nine 主题设置", 'edit_theme_options', "rangtuo-options",  'display');
-        // add_menu_page('Light 主题设置', 'Light 主题设置', 'administrator', 'rangtuo-options', 'display', 'dashicons-admin-generic');
+        add_theme_page("Nine 主题设置", "Nine 主题设置", 'edit_theme_options', "vtheme-options",  'display');
+        // add_menu_page('Light 主题设置', 'Light 主题设置', 'administrator', 'vtheme-options', 'display', 'dashicons-admin-generic');
     }
     
 	// CSRF 验证 检查 wp_nonce，防止 XSS
@@ -20,7 +20,7 @@ function rt_options_init()
 		$action = isset($_POST['_action']) ? $_POST['_action'] : '';
 		$wp_nonce = isset($_POST['_wpnonce']) ? $_POST['_wpnonce'] : '';
 		// p($_POST);
-		if ($action != 'rt_options_update') {
+		if ($action != 'vt_options_update') {
 			return;
 		}
         
@@ -29,31 +29,31 @@ function rt_options_init()
             exit;
         }
 
-		if (wp_verify_nonce($wp_nonce, "rt_options_update") == false) {
+		if (wp_verify_nonce($wp_nonce, "vt_options_update") == false) {
 			echo "请求缺少 _wpnonce";
 			die();
 		}
 	}
 
 	// 如果 wp_option 表中没有记录，就添加主题设置记录
-	global $rt_config;
-	$rt_config = get_option(THEME_OPTION_NAME);
-	if (!$rt_config) {
-		$rt_config = rt_get_default_config();
-		update_option(THEME_OPTION_NAME, $rt_config);
+	global $vt_config;
+	$vt_config = get_option(THEME_OPTION_NAME);
+	if (!$vt_config) {
+		$vt_config = vt_get_default_config();
+		update_option(THEME_OPTION_NAME, $vt_config);
 	}
 
 	// 如果是 POST 请求，就更新设置变量
 	if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['input_save'])) {
 		foreach ($_POST as $k => $v) {
 			if (is_array($v)) {
-				// $rt_config[$k] = json_encode($v, true);
-				$rt_config[$k] = $v;
+				// $vt_config[$k] = json_encode($v, true);
+				$vt_config[$k] = $v;
 			} else {
-				$rt_config[$k] = stripslashes($v);
+				$vt_config[$k] = stripslashes($v);
 			}
 		}
-		update_option(THEME_OPTION_NAME, $rt_config);
+		update_option(THEME_OPTION_NAME, $vt_config);
 	}
     
 	// 保存设置备份
@@ -68,8 +68,8 @@ function rt_options_init()
     
 	// 重置
 	if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['backup_reset'])) {
-		$rt_config = rt_get_default_config();
-		update_option(THEME_OPTION_NAME, $rt_config);
+		$vt_config = vt_get_default_config();
+		update_option(THEME_OPTION_NAME, $vt_config);
 	}
 }
 
@@ -84,7 +84,7 @@ function display()
 	wp_enqueue_script('thickbox');  // 加载上传图片的js(wp自带) 
 	wp_enqueue_style('thickbox'); // 加载css(wp自带)   
 
-	global $rt_config;
+	global $vt_config;
 	include_once(get_stylesheet_directory() . '/inc/config/pages.php');
 }
 
@@ -98,7 +98,7 @@ function add_toolbar_link($wp_admin_bar)
     $plugin_manage = array(
         'id'    => 'nine_manage',
         'title' => 'Nine 主题设置',
-        'href'  => home_url('/wp-admin/themes.php?page=rangtuo-options')
+        'href'  => home_url('/wp-admin/themes.php?page=vtheme-options')
     );
     if(current_user_can( 'manage_options' )){
         $wp_admin_bar->add_node($plugin_manage);
@@ -107,12 +107,12 @@ function add_toolbar_link($wp_admin_bar)
 
 
 
-add_action( 'wp_ajax_rt_download_config', 'rt_download_config' );
-function rt_download_config() {
+add_action( 'wp_ajax_vt_download_config', 'vt_download_config' );
+function vt_download_config() {
     if(!current_user_can( 'manage_options' )){ echo '{"error":"403"}'; exit; }
     
-    $rt_config = get_option(THEME_OPTION_NAME);
-    $text=json_encode($rt_config, JSON_UNESCAPED_UNICODE);
+    $vt_config = get_option(THEME_OPTION_NAME);
+    $text=json_encode($vt_config, JSON_UNESCAPED_UNICODE);
     $fileName= 'nine_'.date('Ymd').'.json';
     header("Content-Type: application/json");
     header("Content-Disposition: attachment; filename=".$fileName);

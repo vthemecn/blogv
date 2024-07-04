@@ -32,17 +32,17 @@ $categories = get_categories($args);
                 <th scope="row"><label for="basic_style">主题的基本色调</label></th>
                 <td>
                     <label class="style-laebl">
-                        <input name="basic_style" type="radio" value="0" <?php if ($rt_config['basic_style'] == 0) { ?>checked="checked" <?php } ?>>
+                        <input name="basic_style" type="radio" value="0" <?php if ($vt_config['basic_style'] == 0) { ?>checked="checked" <?php } ?>>
                         <div class="color-widget" style="background:#007aff;">#007aff</div>
                     </label>
                     <br>
                     <label class="style-laebl">
-                        <input name="basic_style" type="radio" value="1" <?php if ($rt_config['basic_style'] == 1) { ?>checked="checked" <?php } ?>>
+                        <input name="basic_style" type="radio" value="1" <?php if ($vt_config['basic_style'] == 1) { ?>checked="checked" <?php } ?>>
                         <div class="color-widget" style="background:#dd524d;">#dd524d</div>
                     </label>
                     <br>
                     <label class="style-laebl">
-                        <input name="basic_style" type="radio" value="2" <?php if ($rt_config['basic_style'] == 2) { ?>checked="checked" <?php } ?>>
+                        <input name="basic_style" type="radio" value="2" <?php if ($vt_config['basic_style'] == 2) { ?>checked="checked" <?php } ?>>
                         <div class="color-widget" style="background:#333;">#333</div>
                     </label>
 
@@ -56,8 +56,8 @@ $categories = get_categories($args);
 
         </tbody>
     </table>
-    <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('rt_options_update') ?>">
-    <input type="hidden" name="_action" value="rt_options_update">
+    <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('vt_options_update') ?>">
+    <input type="hidden" name="_action" value="vt_options_update">
     <input type="submit" name="input_save" value="保存" class="button button-primary" />
 </form>
 

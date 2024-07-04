@@ -1,7 +1,7 @@
 <?php
-$rt_config = rt_get_config();
+$vt_config = vt_get_config();
 
-switch ($rt_config['widget_title_type']) {
+switch ($vt_config['widget_title_type']) {
     case '1': $widget_title_class='type-1'; break;
     case '2': $widget_title_class='type-2'; break;
     case '3': $widget_title_class='type-3'; break;
@@ -28,7 +28,7 @@ $links = get_bookmarks($args);
 
 <div class="links widget-container">
     <div class="widget-header <?php echo $widget_title_class?>">
-        <div class="widget-title"><?php echo $rt_config['_home_options']['links_title']?></div>
+        <div class="widget-title"><?php echo $vt_config['_home_options']['links_title']?></div>
     </div>
     <div class="links-list">
         <?php foreach($links as $k=>$v): ?>

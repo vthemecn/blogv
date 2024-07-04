@@ -5,18 +5,18 @@ defined('ABSPATH') || exit;
 /**
  * 获取插件设置
  */
-function rt_get_config()
+function vt_get_config()
 {
-    global $rt_config;
-    $rt_config = $rt_config ? $rt_config : get_option(THEME_OPTION_NAME);
-    return $rt_config;
+    global $vt_config;
+    $vt_config = $vt_config ? $vt_config : get_option(THEME_OPTION_NAME);
+    return $vt_config;
 }
 
 
 /**
  * 获取默认设置
  */
-function rt_get_default_config()
+function vt_get_default_config()
 {
 	$config = [];
   
@@ -81,7 +81,7 @@ function rt_get_default_config()
 	$config['footer_logo'] = get_bloginfo('template_url') . '/assets/images/logo.png';
 	$config['footer_description'] = "在这里可以填写网站的简介和网站的 Slogan，或者留空";
 	$config['footer_bg_color'] = '';
-	$config['footer_copyright'] = '&copy; Copyright '.date('Y').' <a href="https://javascript.net.cn/projects/nine" target="_blank">Nine 主题</a>';
+	$config['footer_copyright'] = '&copy; Copyright '.date('Y').' <a href="https://vtheme.cn/themes/nine" target="_blank">Nine 主题</a>';
 	$config['footer_qrcode'] = get_bloginfo('template_url') . '/assets/images/qrcode.jpg';
 	$config['footer_qrcode_title'] = '扫一扫联系我';
 
@@ -124,7 +124,7 @@ function rt_get_default_config()
 	/**
 	 * 邮箱设置
 	 */
-	$config['rt_email_is_on'] 	= 1;
+	$config['vt_email_is_on'] 	= 1;
 	$config['smtp_host'] 		= 'smtp.qq.com';
 	$config['smtp_port'] 		= '465';
 	$config['smtp_username'] 	= '';
@@ -141,8 +141,8 @@ function rt_get_default_config()
 	 * 第三方登录设置
 	 */
 	$config['is_wxapp_active'] 	= 1;
-	$config['rt_wx_appid'] 		= "wx01aa84e3c1------";
-	$config['rt_wx_secret'] 	= '';
+	$config['vt_wx_appid'] 		= "wx01aa84e3c1------";
+	$config['vt_wx_secret'] 	= '';
     
 	return $config;
 }

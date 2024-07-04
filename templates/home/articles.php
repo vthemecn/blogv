@@ -1,8 +1,8 @@
 <?php
 
 wp_reset_postdata();
-$rt_config = rt_get_config();
-$title = $rt_config['_home_options']['artilces_title'] ;
+$vt_config = vt_get_config();
+$title = $vt_config['_home_options']['artilces_title'] ;
 
 ?>
 
@@ -24,8 +24,8 @@ $title = $rt_config['_home_options']['artilces_title'] ;
                 'ignore_sticky_posts' => 1
             );
 
-            if( $rt_config['_home_options']['artilces_not_in_ids'] ){
-                $args['category__not_in'] = explode(',', $rt_config['_home_options']['artilces_not_in_ids']);
+            if( $vt_config['_home_options']['artilces_not_in_ids'] ){
+                $args['category__not_in'] = explode(',', $vt_config['_home_options']['artilces_not_in_ids']);
             }
 
             $query_posts = new WP_Query( $args );
@@ -45,8 +45,8 @@ $title = $rt_config['_home_options']['artilces_title'] ;
             'post__not_in' => $sticky_arr
         );
 
-        if( $rt_config['_home_options']['artilces_not_in_ids'] ){
-            $args['category__not_in'] = explode(',', $rt_config['_home_options']['artilces_not_in_ids']);
+        if( $vt_config['_home_options']['artilces_not_in_ids'] ){
+            $args['category__not_in'] = explode(',', $vt_config['_home_options']['artilces_not_in_ids']);
         }
 
         $query_posts = new WP_Query( $args );
@@ -59,8 +59,8 @@ $title = $rt_config['_home_options']['artilces_title'] ;
     <button
         type="button"
         class="posts-more-button articles-more"
-        data-auto-load='<?php echo $rt_config['_home_options']['articles_auto_load'] ?>'
-        data-auto-limit='<?php echo $rt_config['_home_options']['articles_auto_limit'] ?>'
+        data-auto-load='<?php echo $vt_config['_home_options']['articles_auto_load'] ?>'
+        data-auto-limit='<?php echo $vt_config['_home_options']['articles_auto_limit'] ?>'
         data-no-more='false'
         data-current-page='1'>
         <i class="iconfont">&#xe895;</i>

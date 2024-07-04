@@ -1,7 +1,7 @@
 .articles-widget{
-  background-color: var(--rt-bg-color-card);
-  box-shadow: 0 0 2px 0 var(--rt-shadow-color);
-  border-radius: var(--rt-border-radius);
+  background-color: var(--vt-bg-color-card);
+  box-shadow: 0 0 2px 0 var(--vt-shadow-color);
+  border-radius: var(--vt-border-radius);
   overflow : hidden
 }
 
@@ -13,10 +13,10 @@
 
 .articles-widget .articles-header{
   padding: 15px 15px 15px 15px;
-  font-size: var(--rt-font-size-base);
+  font-size: var(--vt-font-size-base);
   font-weight: bold;
 }
 
 .articles-list .media-item:nth-child(1){
-  border-top: 1px solid var(--rt-border-color);
+  border-top: 1px solid var(--vt-border-color);
 }

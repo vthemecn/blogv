@@ -1,5 +1,5 @@
 <?php
-$rt_config = rt_get_config();
+$vt_config = vt_get_config();
 ?>
 
 <div class="card-item">
@@ -11,7 +11,7 @@ $rt_config = rt_get_config();
         ?>
             <img src="<?php echo $thumbnail_image[0] ?>" alt="<?php the_title(); ?>">
         <?php else : ?>
-            <img src="<?php echo $rt_config['default_image'] ?>">
+            <img src="<?php echo $vt_config['default_image'] ?>">
         <?php endif ?>
     </a>
     <div class="item-info">
