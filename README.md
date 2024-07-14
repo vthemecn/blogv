@@ -23,3 +23,7 @@ Nine 是一款 WordPress 主题，无需任何代码，轻点鼠标即可对主�
 ### LICENSE
 遵循GPL协议，非商业用途免费使用，请保留底部版权
 
+### 演示地址
+- [https://www.9-f.cn/](https://www.9-f.cn/)
+- [https://restfulapi.cn/](https://restfulapi.cn/)
+
