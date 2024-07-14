@@ -248,3 +248,5 @@ if ($vt_config['vt_email_is_on'] == 1) {
         update_option('vt_mail_error', $wp_error->get_error_message('wp_mail_failed'));
     }
 }
+
+
