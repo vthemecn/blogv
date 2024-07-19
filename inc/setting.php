@@ -76,10 +76,10 @@ function vt_excerpt_length($length) {
  * 禁用更新
  */
 if($vt_config['update_is_on'] == 0){
-    add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) ); // 移除版本更新提示
-    add_filter( 'pre_site_transient_update_plugins', create_function( '$b', "return null;" ) ); // 移除插件更新提示
-    add_filter('pre_site_transient_update_core', create_function('$a', "return null;")); // 移除主题更新提示 
-    add_filter('pre_site_transient_update_themes', create_function('$a', "return null;"));  // 关闭插件提示
+    add_filter( 'pre_site_transient_update_core', '__return_null'); // 移除版本更新提示
+    add_filter( 'pre_site_transient_update_plugins', '__return_null'); // 移除插件更新提示
+    add_filter('pre_site_transient_update_themes', '__return_null'); // 关闭插件提示
+    
     remove_action('admin_init', '_maybe_update_core');    // 禁用 WordPress 检查更新
     remove_action('admin_init', '_maybe_update_plugins'); // 禁用 WordPress 更新插件
     remove_action('admin_init', '_maybe_update_themes');  // 禁用 WordPress 更新主题

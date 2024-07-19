@@ -4,7 +4,7 @@ $vt_config = vt_get_config();
 $author_id = get_the_author_id();
 $avatar = vt_get_custom_avatar_url($author_id);
 
-$user_center_url = $vt_config['user_center_is_on'] ? '/users/'.$post->post_author : 'javascript:;';
+$user_center_url = home_url() . '/users/' .$post->post_author;
 ?>
 
 <div class="media-item">
@@ -29,12 +29,18 @@ $user_center_url = $vt_config['user_center_is_on'] ? '/users/'.$post->post_autho
             <?php echo get_the_excerpt(); ?>
         </div>
         <div class="media-meta">
-            <a class="author" href="<?php echo $user_center_url ?>" target="_blank">
-                <img src="<?php echo $avatar ?>">
-                <span>
-                    <?php echo get_the_author_meta('nickname', $post->post_author) ?>
+            <?php if($vt_config['user_center_is_on']):?>
+                <a class="author" href="<?php echo $user_center_url ?>" target="_blank">
+                    <img src="<?php echo $avatar ?>">
+                    <span><?php echo get_the_author_meta('nickname', $post->post_author) ?></span>
+                </a>
+            <?php else: ?>
+                <span class="author">
+                    <img src="<?php echo $avatar ?>">
+                    <span><?php echo get_the_author_meta('nickname', $post->post_author) ?></span>
                 </span>
-            </a>
+            <?php endif ?>
+
             <span class="date">
                 <i class="iconfont">&#xe76d;</i><?php the_time('Y-m-d'); ?>
             </span>

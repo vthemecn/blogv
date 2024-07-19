@@ -40,10 +40,10 @@ $colored_class = $vt_config['footer_bg_type'] == 0 ? 'colored' : '';
     
     <div class="footer-copyright">
         <?php echo $vt_config['footer_copyright']; ?>
-        <span>
+        <!-- <span>
             <a href="https://vtheme.cn/themes/nine" target="_blank">Nine</a>
         </span>
-        
+         -->
         <?php if($vt_config['page_data_type'] == 1): ?>
             <span>查询次数:<?php echo get_num_queries(); ?> </span>
         <?php elseif($vt_config['page_data_type'] == 2) :?>
