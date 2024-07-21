@@ -7,6 +7,8 @@ class HomeController
     public function getMoreArticles($request)
     {
         $vt_config = vt_get_config();
+        $default_image = $vt_config['default_image'] ? $vt_config['default_image'] : 
+                    get_template_directory_uri() . '/assets/images/default.jpg';
         
         $query = $request->get_query_params();
 
@@ -35,7 +37,7 @@ class HomeController
                 $res->the_post();
                 $current_post = get_post();
                 $thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id($current_post->ID), 'medium');
-                $thumbnail = $thumbnail_arr ? $thumbnail_arr[0] : $vt_config['default_image'];
+                $thumbnail = $thumbnail_arr ? $thumbnail_arr[0] : $default_image;
                 
                 $author_id = get_the_author_id();
                 $avatar = vt_get_custom_avatar_url($author_id);

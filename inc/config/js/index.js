@@ -187,6 +187,7 @@ window.addEventListener('load', function(){
  * 幻灯片上传功能
  */
 window.addEventListener('load', function(){
+  console.log('wp.media ', wp);
   if(!document.querySelectorAll(".slider-list .upload-slider-button")) return;
   
   // 图片上传按钮

@@ -18,6 +18,9 @@ get_header();
 $vt_config = vt_get_config();
 $category = get_term($cat);
 
+$default_image = $vt_config['default_image'] ? $vt_config['default_image'] : 
+                    get_template_directory_uri() . '/assets/images/default.jpg';
+
 // 获取分类第一篇文章的缩略图或者图片
 $banner_image = get_bloginfo('template_url') . '/assets/images/user-center-banner.jpg';
 $args = array(
@@ -87,7 +90,7 @@ switch ($vt_config['list_cards_col']) {
                             ?>
                                 <img src="<?php echo $thumbnail_image[0] ?>" alt="<?php the_title(); ?>">
                             <?php else : ?>
-                                <img src="<?php echo $vt_config['default_image'] ?>">
+                                <img src="<?php echo $default_image ?>">
                             <?php endif ?>
                         </a>
                         <div class="item-info">

@@ -1,5 +1,7 @@
 <?php
 $vt_config = vt_get_config();
+$default_image = $vt_config['default_image'] ? $vt_config['default_image'] : 
+                    get_template_directory_uri() . '/assets/images/default.jpg';
 ?>
 
 <div class="card-item">
@@ -11,7 +13,7 @@ $vt_config = vt_get_config();
         ?>
             <img src="<?php echo $thumbnail_image[0] ?>" alt="<?php the_title(); ?>">
         <?php else : ?>
-            <img src="<?php echo $vt_config['default_image'] ?>">
+            <img src="<?php echo $default_image ?>">
         <?php endif ?>
     </a>
     <div class="item-info">

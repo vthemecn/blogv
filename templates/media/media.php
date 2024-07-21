@@ -5,6 +5,8 @@ $author_id = get_the_author_id();
 $avatar = vt_get_custom_avatar_url($author_id);
 
 $user_center_url = home_url() . '/users/' .$post->post_author;
+$default_image = $vt_config['default_image'] ? $vt_config['default_image'] : 
+                    get_template_directory_uri() . '/assets/images/default.jpg';
 ?>
 
 <div class="media-item">
@@ -13,7 +15,7 @@ $user_center_url = home_url() . '/users/' .$post->post_author;
             <?php if (has_post_thumbnail()) { ?>
                 <?php the_post_thumbnail('medium'); ?>
             <?php } else { ?>
-                <img src="<?php echo $vt_config['default_image'] ?>">
+                <img src="<?php echo $default_image ?>">
             <?php } ?>
         </a>
     </div>
