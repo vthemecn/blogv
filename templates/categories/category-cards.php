@@ -18,8 +18,7 @@ get_header();
 $vt_config = vt_get_config();
 $category = get_term($cat);
 
-$default_image = $vt_config['default_image'] ? $vt_config['default_image'] : 
-                    get_template_directory_uri() . '/assets/images/default.jpg';
+// $default_image = $vt_config['default_image'] ? $vt_config['default_image'] : get_template_directory_uri() . '/assets/images/default.jpg';
 
 // 获取分类第一篇文章的缩略图或者图片
 $banner_image = get_bloginfo('template_url') . '/assets/images/user-center-banner.jpg';
@@ -83,15 +82,8 @@ switch ($vt_config['list_cards_col']) {
                     <?php $query_posts->the_post(); ?>
                     <div class="card-item">
                         <a class="card-image" href="<?php the_permalink() ?>">
-                            <?php
-                            $cur_post = get_post();
-                            $thumbnail_image = wp_get_attachment_image_src(get_post_thumbnail_id($cur_post->ID), 'medium');
-                            if (!empty($thumbnail_image)) :
-                            ?>
-                                <img src="<?php echo $thumbnail_image[0] ?>" alt="<?php the_title(); ?>">
-                            <?php else : ?>
-                                <img src="<?php echo $default_image ?>">
-                            <?php endif ?>
+                            <?php  $cur_post = get_post(); ?>
+                            <img src="<?= vt_get_thumbnail_url($cur_post->ID, 'medium') ?>" alt="<?php the_title(); ?>">
                         </a>
                         <div class="item-info">
                             <a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>

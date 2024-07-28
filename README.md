@@ -1,10 +1,10 @@
-![Nine](screenshot.png)
+![BlogV](screenshot.png)
 
-Nine 主题
+BlogV 主题
 ======
 
 ### 主题简介
-Nine 是一款 WordPress 主题，无需任何代码，轻点鼠标即可对主题和网站进行设置，组合出各种丰富多彩的页面。
+BlogV 是一款 WordPress 主题，无需任何代码，轻点鼠标即可对主题和网站进行设置，组合出各种丰富多彩的页面。
 
 
 ### 主题功能

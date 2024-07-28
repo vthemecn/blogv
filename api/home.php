@@ -1,14 +1,14 @@
 <?php
 
-namespace nine\api;
+namespace vtheme\api;
 
 class HomeController
 {
     public function getMoreArticles($request)
     {
         $vt_config = vt_get_config();
-        $default_image = $vt_config['default_image'] ? $vt_config['default_image'] : 
-                    get_template_directory_uri() . '/assets/images/default.jpg';
+        // $default_image = $vt_config['default_image'] ? $vt_config['default_image'] : 
+        //             get_template_directory_uri() . '/assets/images/default.jpg';
         
         $query = $request->get_query_params();
 
@@ -36,8 +36,9 @@ class HomeController
             while ( $res->have_posts() ) {
                 $res->the_post();
                 $current_post = get_post();
-                $thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id($current_post->ID), 'medium');
-                $thumbnail = $thumbnail_arr ? $thumbnail_arr[0] : $default_image;
+                // $thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id($current_post->ID), 'medium');
+                // $thumbnail = $thumbnail_arr ? $thumbnail_arr[0] : $default_image;
+                $thumbnail = vt_get_thumbnail_url($current_post->ID, 'medium');
                 
                 $author_id = get_the_author_id();
                 $avatar = vt_get_custom_avatar_url($author_id);
@@ -102,12 +103,12 @@ class HomeController
     
         // 发送邮件
         $to         = $request->get_json_params()['email'];
-        $subject    = "Nine 主题邮箱 SMTP 设置成功";
+        $subject    = "BlogV 主题邮箱 SMTP 设置成功";
         $body       = "
         <div style='width:600px;margin:50px auto; padding-left:77px; background:#fff;font-size:16px;color:#55798d;padding-right80px;'>
-            <p><img src='https://www.9-f.cn/wp-content/themes/nine/assets/images/logo.png' style='max-height:50px;user-select:none'></p>
-            <h3>Nine 主题邮箱 SMTP 设置成功</h3>
-            <p>Nine 主题官网地址 <a href='https://vtheme.cn/themes/nine'>https://vtheme.cn/themes/nine</a></p>
+            <p><img src='https://www.9-f.cn/wp-content/themes/blogv/assets/images/logo.png' style='max-height:50px;user-select:none'></p>
+            <h3>BlogV 主题邮箱 SMTP 设置成功</h3>
+            <p>BlogV 主题官网地址 <a href='https://vtheme.cn/themes/blogv'>https://vtheme.cn/themes/blogv</a></p>
         </div>
         ";
         $headers    = array('Content-Type: text/html; charset=UTF-8');

@@ -22,7 +22,7 @@ $upload_avatar_button = $param_user_id ==  $current_user->ID ? 'upload-avatar-bu
 </div>
 
 <form id="avatar_upload" method="post" 
-    action="<?php echo home_url('/wp-json/nine/v1/upload/upload-avatar'); ?>?_wpnonce=<?php echo wp_create_nonce('wp_rest'); ?>" 
+    action="<?php echo home_url('/wp-json/vtheme/v1/upload/upload-avatar'); ?>?_wpnonce=<?php echo wp_create_nonce('wp_rest'); ?>" 
     enctype="multipart/form-data" style="display: none;">
     <input type="file" name="avatar-input" id="avatar-input" multiple="false" />
     // <input type="hidden" name="post_id" id="post_id" value="55" />

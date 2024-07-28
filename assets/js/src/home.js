@@ -26,7 +26,7 @@ function articlesGetMore() {
       }
       
       var page = Number(e.target.dataset.currentPage) + 1;
-      var url = '/wp-json/nine/v1/home/get-more-articles?page=' + page;
+      var url = '/wp-json/vtheme/v1/home/get-more-articles?page=' + page;
       
       that.classList.add('loading');
       that.disabled = true;
@@ -105,7 +105,7 @@ function audiosGetMore() {
       }
       
       var page = Number(e.target.dataset.currentPage) + 1;
-      var url = '/wp-json/nine/v1/home/get-more-audios?page=' + page;
+      var url = '/wp-json/vtheme/v1/home/get-more-audios?page=' + page;
       
       that.classList.add('loading');
       that.disabled = true;

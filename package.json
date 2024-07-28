@@ -1,5 +1,5 @@
 {
-  "name": "nine",
+  "name": "blogv",
   "version": "2.2.2",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitee.com/soushenji/nine"
+    "url": "git+https://gitee.com/soushenji/blogv"
   },
   "author": "soushenji",
   "license": "ISC"

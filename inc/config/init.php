@@ -11,7 +11,7 @@ function vt_options_init()
 {
 	// 添加顶部菜单
     if(current_user_can( 'manage_options' )){
-        add_theme_page("Nine 主题设置", "Nine 主题设置", 'edit_theme_options', "vtheme-options",  'display');
+        add_theme_page("BlogV 主题设置", "BlogV 主题设置", 'edit_theme_options', "vtheme-options",  'display');
         // add_menu_page('Light 主题设置', 'Light 主题设置', 'administrator', 'vtheme-options', 'display', 'dashicons-admin-generic');
     }
     
@@ -96,8 +96,8 @@ add_action('admin_bar_menu', 'add_toolbar_link', 999);
 function add_toolbar_link($wp_admin_bar)
 {
     $plugin_manage = array(
-        'id'    => 'nine_manage',
-        'title' => 'Nine 主题设置',
+        'id'    => 'vtheme_manage',
+        'title' => 'BlogV 主题设置',
         'href'  => home_url('/wp-admin/themes.php?page=vtheme-options')
     );
     if(current_user_can( 'manage_options' )){
@@ -113,7 +113,7 @@ function vt_download_config() {
     
     $vt_config = get_option(THEME_OPTION_NAME);
     $text=json_encode($vt_config, JSON_UNESCAPED_UNICODE);
-    $fileName= 'nine_'.date('Ymd').'.json';
+    $fileName= 'vtheme_'.date('Ymd').'.json';
     header("Content-Type: application/json");
     header("Content-Disposition: attachment; filename=".$fileName);
     echo $text;

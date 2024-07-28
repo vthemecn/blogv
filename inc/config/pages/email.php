@@ -55,7 +55,7 @@ defined('ABSPATH') || exit;
                 <th scope="row"><label for="smtp_nicename">测试收件人邮箱地址</label></th>
                 <td>
                     <input type="text" name="test_email" value="<?php echo ($vt_config['test_email']); ?>" class="regular-text">
-                    <button type="button" id="sendemail-test-button" data-token="<?php echo wp_create_nonce('wp_rest'); ?>" data-url="<?php echo bloginfo('wpurl') ?>/wp-json/nine/v1/sendmail-test">
+                    <button type="button" id="sendemail-test-button" data-token="<?php echo wp_create_nonce('wp_rest'); ?>" data-url="<?php echo bloginfo('wpurl') ?>/wp-json/vtheme/v1/sendmail-test">
                         发送测试邮件
                     </button>
                     <p class="description">测试邮件配置是否正确，请保存配置后，再进行发送邮件测试</p>

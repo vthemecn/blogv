@@ -26,9 +26,9 @@ if (!array_key_exists($action, $option_pages)) {
 <script src="<?php bloginfo('template_url'); ?>/inc/config/js/index.js"></script>
 
 <div class="wrap">
-    <h1>Nine 主题设置</h1>
+    <h1>BlogV 主题设置</h1>
     <p>
-        Nine 主题地址： <a href="https://vtheme.cn/themes/nine" target="_blank">https://vtheme.cn/themes/nine</a>
+        BlogV 主题地址： <a href="https://vtheme.cn/themes/blogv" target="_blank">https://vtheme.cn/themes/blogv</a>
     </p>
     <?php if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['input_save'])) { ?>
         <div id="setting-error-settings_updated" class="notice notice-success settings-error is-dismissible">

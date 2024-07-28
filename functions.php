@@ -7,7 +7,6 @@
  * @link https://github.com/soushenji
  */
 
-// $vt_options = vt_get_config();
 
 // 打印函数
 if (!function_exists('p')) :
@@ -19,7 +18,7 @@ if (!function_exists('p')) :
     }
 endif;
 
-define('THEME_OPTION_NAME', '_nine_config');
+define('THEME_OPTION_NAME', '_blogv_config');
 define('TEMP_DIR', get_template_directory());
 
 
@@ -57,10 +56,12 @@ function vt_get_custom_avatar_url($user_id)
  */
 function vt_get_thumbnail_url($post_id, $size='thumbnail')
 {
+    $vt_config = vt_get_config();
+
     $url = get_the_post_thumbnail_url($post_id, $size);
     if (!$url) {
-        // $url = get_bloginfo('template_directory') . '/assets/images/default.jpg';
         $url = $vt_config['default_image'];
+        $url = $url ? $url : get_template_directory_uri() . '/assets/images/default.jpg';
     }
     return $url;
 }
@@ -72,8 +73,8 @@ function vt_get_thumbnail_url($post_id, $size='thumbnail')
 if (function_exists('register_nav_menus')) {
     register_nav_menus(
         array(
-            'header_main' => __('Nine 顶部菜单'),
-            'footer_nav'  => __('Nine 底部菜单')
+            'header_main' => __('BlogV 顶部菜单'),
+            'footer_nav'  => __('BlogV 底部菜单')
         )
     );
 }
@@ -276,6 +277,14 @@ function get_user_by_id($user_id)
     return $user_data;
 }
 
+
+/**
+ * 获取默认图片
+ * @return [type] [description]
+ */
+// function get_default_image(){
+
+// }
 
 
 

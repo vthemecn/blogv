@@ -1,22 +1,20 @@
 <?php
 $vt_config = vt_get_config();
 
+$cur_post_id = get_the_ID();
+
 $author_id = get_the_author_id();
 $avatar = vt_get_custom_avatar_url($author_id);
 
 $user_center_url = home_url() . '/users/' .$post->post_author;
-$default_image = $vt_config['default_image'] ? $vt_config['default_image'] : 
-                    get_template_directory_uri() . '/assets/images/default.jpg';
+// $default_image = $vt_config['default_image'] ? $vt_config['default_image'] : 
+//                     get_template_directory_uri() . '/assets/images/default.jpg';
 ?>
 
 <div class="media-item">
     <div class="media-thumbnail">
         <a href="<?php the_permalink() ?>" target="_blank">
-            <?php if (has_post_thumbnail()) { ?>
-                <?php the_post_thumbnail('medium'); ?>
-            <?php } else { ?>
-                <img src="<?php echo $default_image ?>">
-            <?php } ?>
+            <img src="<?= vt_get_thumbnail_url($cur_post_id, 'medium') ?>" alt="<?php the_title(); ?>">
         </a>
     </div>
     

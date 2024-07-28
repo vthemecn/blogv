@@ -81,7 +81,7 @@ function vt_get_default_config()
 	$config['footer_logo'] = get_bloginfo('template_url') . '/assets/images/logo.png';
 	$config['footer_description'] = "在这里可以填写网站的简介和网站的 Slogan，或者留空";
 	$config['footer_bg_color'] = '';
-	$config['footer_copyright'] = '&copy; Copyright '.date('Y').' <a href="https://vtheme.cn/themes/nine" target="_blank">Nine 主题</a>';
+	$config['footer_copyright'] = '&copy; Copyright '.date('Y').' <a href="https://vtheme.cn" target="_blank">VTHEME 微主题</a>';
 	$config['footer_qrcode'] = get_bloginfo('template_url') . '/assets/images/qrcode.jpg';
 	$config['footer_qrcode_title'] = '扫一扫联系我';
 
@@ -106,8 +106,8 @@ function vt_get_default_config()
 	/* 幻灯片 */
 	$config['_home_options']['sliders_height'] = '350px';
 	$config['_home_options']['sliders'] = array(
-	  array('pic-url'=>'https://demo.9-f.cn/wp-content/uploads/2023/05/2023052107082569-scaled.jpeg'),
-	  array('pic-url'=>'https://demo.9-f.cn/wp-content/uploads/2023/05/2023052107093356-scaled.jpeg'),
+	  array('pic-url' => get_bloginfo('template_url') . '/assets/images/banner1.jpg'),
+	  array('pic-url' => get_bloginfo('template_url') . '/assets/images/banner2.jpg'),
 	);
 
 	/* 最新文章 */
@@ -129,7 +129,7 @@ function vt_get_default_config()
 	$config['smtp_port'] 		= '465';
 	$config['smtp_username'] 	= '';
 	$config['smtp_password'] 	= '';
-	$config['smtp_nicename'] 	= 'Nine 主题';
+	$config['smtp_nicename'] 	= 'BlogV 主题';
 	$config['test_email']		= '';
 
 	/**
