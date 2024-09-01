@@ -144,17 +144,18 @@ function custom_loginlogo() {
     echo '<style type="text/css">
     h1 a {
         background-image: url('. $vt_config['site_logo'] .') !important;
-        max-width:180px !important;
-        max-height:70px !important;
-        background-size: 100% !important;
-        object-fit:cover;
+        width:260px !important;
+        height:80px !important;
+        margin: 0 auto !important;
+        background-size: contain !important;
+        background-position: center center !important;
     }
-    #loginform{
-        border-radius: 5px;
-    }
+    /* #loginform{  border-radius: 5px; } */
     </style>';
 }
 add_action('login_head', 'custom_loginlogo'); 
+//自定义登录页面logo链接
+add_filter('login_headerurl', create_function(false,"return get_bloginfo('url');"));
 
 
 /* 文章自动保存 */
