@@ -155,7 +155,9 @@ function custom_loginlogo() {
 }
 add_action('login_head', 'custom_loginlogo'); 
 //自定义登录页面logo链接
-add_filter('login_headerurl', create_function(false,"return get_bloginfo('url');"));
+// add_filter('login_headerurl', create_function(false,"return get_bloginfo('url');"));
+add_filter('login_headerurl', 'login_headerurl_action');
+function login_headerurl_action(){ return get_bloginfo('url'); }
 
 
 /* 文章自动保存 */
