@@ -28,7 +28,7 @@ $links = get_bookmarks($args);
 
 <div class="links widget-container">
     <div class="widget-header <?php echo $widget_title_class?>">
-        <div class="widget-title"><?php echo $vt_config['_home_options']['links_title']?></div>
+        <div class="widget-title"><?php echo __('友情链接','vt')?></div>
     </div>
     <div class="links-list">
         <?php foreach($links as $k=>$v): ?>

@@ -42,6 +42,9 @@ class HomeController
                 
                 $author_id = get_the_author_id();
                 $avatar = vt_get_custom_avatar_url($author_id);
+
+                $user_center_url = home_url() . '/users/' . $current_post->post_author;
+                $display_name = get_the_author_meta('display_name', $current_post->post_author);
                 
                 $output .= '<div class="media-item">
                     <div class="media-thumbnail">
@@ -56,14 +59,25 @@ class HomeController
                         <div class="media-description">
                             '. get_the_excerpt() .'
                         </div>
-                        <div class="media-meta">
-                            <a class="author" href="javascript:;">
-                                <img src="'. $avatar .'">
-                                <span>
-                                    '.get_the_author_meta('display_name', $current_post->post_author) .'
+                        <div class="media-meta">';
+
+                if($vt_config['user_center_is_on']){
+                    $output .=  <<<EOD
+                                <a class="author" href="{$user_center_url}" target="_blank">
+                                    <img src="{$avatar}">
+                                    <span>{$display_name}</span>
+                                </a>
+                                EOD;
+                } else {
+                    $output .=  <<<EOD
+                                <span class="author">
+                                    <img src="{$avatar}">
+                                    <span>{$display_name}</span>
                                 </span>
-                            </a>
-                            <span class="date">
+                                EOD;
+                }
+
+                $output .= '<span class="date">
                                 <i class="iconfont">&#xe76d;</i>'.get_the_time('Y-m-d').'
                             </span>
                             <span class="hit-counter">

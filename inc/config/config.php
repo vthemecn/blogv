@@ -116,11 +116,6 @@ function vt_get_default_config()
 	$config['_home_options']['articles_auto_load'] = 0;
 	$config['_home_options']['articles_auto_limit'] = 0;
 
-
-	/* 友情链接 */ 
-	$config['_home_options']['links_title'] = '友情链接';
-	$config['_home_options']['links_cat_id'] = '';
-
 	/**
 	 * 邮箱设置
 	 */
