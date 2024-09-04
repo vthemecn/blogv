@@ -189,7 +189,6 @@ $categories = get_categories($args);
                 <li><a href="javascript:;" class="<?php echo $active=='slider' ? 'active' : ''?>" data-id="slider">幻灯片设置</a></li>
                 <li><a href="javascript:;" class="<?php echo $active=='article' ? 'active' : ''?>" data-id="article">最新文章模块</a></li>
                 <li><a href="javascript:;" class="<?php echo $active=='search' ? 'active' : ''?>" data-id="search">搜索条模块</a></li>
-                <li><a href="javascript:;" class="<?php echo $active=='links' ? 'active' : ''?>" data-id="links">友情链接模块</a></li>
             </ul>
 
 
@@ -310,35 +309,6 @@ $categories = get_categories($args);
                                     <button type="button" class="delete-button">删除</button>
                                     <p class="description" id="tagline-description">图片尺寸 180*50</p>
                                 </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- 友情链接模块 -->
-            <div class="options-content links <?php echo $active=='links' ? 'active' : ''?>">
-                <table class="form-table" role="presentation">
-                    <tbody>
-                        <tr>
-                            <th scope="row"><label for="_home_options[links_title]">友情链接标题</label></th>
-                            <td>
-                                <input type="text" name="_home_options[links_title]" id="_home_options[links_title]" 
-                                value="<?php echo $config['_home_options']['links_title']; ?>" 
-                                class="regular-text" placeholder="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><label for="_home_options[links_cat_id]">选择分类</label></th>
-                            <td>
-                                <select name="_home_options[links_cat_id]" id="_home_options[links_cat_id]">
-                                    <option value="0">请选择</option>
-                                    <?php foreach ($categories as $k => $v) : ?>
-                                        <?php $selected = $v->term_id == $vt_config['_home_options']['links_cat_id'] ? ' selected="selected"' : ""; ?>
-                                        <option <?php echo $selected; ?> value="<?php echo $v->term_id; ?>"><?php echo $v->name; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <p class="description">请选择相关栏目所调用的文章分类</p>
                             </td>
                         </tr>
                     </tbody>
